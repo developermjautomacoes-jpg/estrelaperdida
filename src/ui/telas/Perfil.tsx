@@ -3,6 +3,7 @@ import { cartasPendentes, NIVEL_MAXIMO, XP_POR_NIVEL, nivelPorXp, opcoesDeCarta,
 import { criarHeroi } from '../../engine/save';
 import type { Classe, Conquista, HeroiSalvo, Jogador } from '../../engine/types';
 import { Carta } from '../Carta';
+import { Retrato } from '../arte/Retrato';
 
 interface Props {
   jogador: Jogador;
@@ -37,6 +38,7 @@ export function Perfil({ jogador, classes, conquistas, onSalvar, onVoltar }: Pro
             const pctBase = p.proximo ? ((h.xp - piso) / (p.proximo - piso)) * 100 : 100;
             return (
               <article key={h.id} className="heroi">
+                <Retrato id={h.versao} visual={v.visual} className="heroi__retrato" titulo={h.nome} />
                 <header>
                   <strong>{h.nome}</strong>
                   <span>
@@ -96,6 +98,7 @@ export function Perfil({ jogador, classes, conquistas, onSalvar, onVoltar }: Pro
           <div className="versoes">
             {classes[classeSel].versoes.map((v) => (
               <article key={v.id} className="versao">
+                <Retrato id={v.id} visual={v.visual} className="versao__retrato" titulo={v.nome} />
                 <h3>
                   {v.nome} <span className="etiqueta">{v.genero === 'f' ? 'ela' : 'ele'}</span>
                 </h3>

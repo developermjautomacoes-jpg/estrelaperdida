@@ -109,6 +109,7 @@ describe('batalha', () => {
     expect(vivas(e, 'heroi')).toHaveLength(1);
     expect(vivas(e, 'monstro')).toHaveLength(2); // 1 herói: só os inimigos sem minHerois
     expect(e.fase).toBe('planejamento');
+    expect(vivas(e, 'heroi')[0].arteId).toBe('base.defensor.brasa');
   });
 
   it('joga uma rodada completa sem erros', () => {

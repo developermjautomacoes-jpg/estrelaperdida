@@ -97,7 +97,17 @@
           }
         }
       ],
-      "companheiro": "Pipa, a coruja"
+      "companheiro": "Pipa, a coruja",
+      "visual": {
+        "forma": "elfo",
+        "pele": "#f0d6c0",
+        "cabelo": "#e8e2c8",
+        "roupa": "#3f5a3a",
+        "destaque": "#7fd0a0",
+        "item": "arco",
+        "companheiro": "coruja",
+        "prompt": "a calm young elf woman ranger, long pale silver-blond hair, pointed ears, green leaf-patterned hooded cloak, longbow drawn, a small grey owl perched on her shoulder, serene focused gaze"
+      }
     },
     {
       "id": "base.atirador.taren",
@@ -179,7 +189,17 @@
           }
         }
       ],
-      "companheiro": "Faísca, o lince"
+      "companheiro": "Faísca, o lince",
+      "visual": {
+        "forma": "elfo",
+        "pele": "#e3c3a6",
+        "cabelo": "#2e3b2a",
+        "roupa": "#4d4232",
+        "destaque": "#d9a441",
+        "item": "besta",
+        "companheiro": "lince",
+        "prompt": "an impulsive young elf man hunter, messy dark green-black hair, pointed ears, scar on cheek, rugged leather armor with traps hanging from belt, heavy crossbow, a lynx companion beside him, fierce expression"
+      }
     }
   ],
   "cartas": [

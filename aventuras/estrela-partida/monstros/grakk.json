@@ -64,5 +64,13 @@
     }
   ],
   "chefe": true,
-  "vidaPorHeroi": 4
+  "vidaPorHeroi": 4,
+  "visual": {
+    "forma": "sapo",
+    "pele": "#5f7a3a",
+    "roupa": "#3b4a26",
+    "destaque": "#ffd25a",
+    "detalhe": "coroa",
+    "prompt": "a gigantic vain toad king sitting on a throne of mud, wearing a crude crown with a glowing crystal shard, huge greedy mouth, swamp mist"
+  }
 }

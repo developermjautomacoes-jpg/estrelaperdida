@@ -1,4 +1,4 @@
-import type { Aventura, Cenario, Classe, Conquista, Monstro } from '../engine/types';
+import type { Aventura, Cenario, Classe, Conquista, Monstro, Personagem } from '../engine/types';
 
 // Carrega todos os pacotes de /aventuras automaticamente.
 // Para criar uma aventura nova basta adicionar uma pasta lá — nenhum código muda.
@@ -10,6 +10,7 @@ export interface Pacote {
   monstros: Monstro[];
   cenarios: Cenario[];
   conquistas: Conquista[];
+  personagens: Personagem[];
 }
 
 export interface Registro {
@@ -19,6 +20,7 @@ export interface Registro {
   monstros: Record<string, Monstro>;
   cenarios: Record<string, Cenario>;
   conquistas: Conquista[];
+  personagens: Personagem[];
 }
 
 type Arquivos = Record<string, unknown>;
@@ -27,7 +29,7 @@ export const montarRegistro = (arquivos: Arquivos): Registro => {
   const porPasta = new Map<string, Pacote>();
   const pacote = (pasta: string) => {
     if (!porPasta.has(pasta))
-      porPasta.set(pasta, { pasta, aventura: undefined as unknown as Aventura, classes: [], monstros: [], cenarios: [], conquistas: [] });
+      porPasta.set(pasta, { pasta, aventura: undefined as unknown as Aventura, classes: [], monstros: [], cenarios: [], conquistas: [], personagens: [] });
     return porPasta.get(pasta)!;
   };
   for (const [caminho, dado] of Object.entries(arquivos)) {
@@ -37,6 +39,7 @@ export const montarRegistro = (arquivos: Arquivos): Registro => {
     const p = pacote(pasta);
     if (resto === 'aventura') p.aventura = dado as Aventura;
     else if (resto === 'conquistas') p.conquistas.push(...(dado as Conquista[]));
+    else if (resto === 'personagens') p.personagens.push(...(dado as Personagem[]));
     else if (resto.startsWith('classes/')) p.classes.push(dado as Classe);
     else if (resto.startsWith('monstros/')) p.monstros.push(dado as Monstro);
     else if (resto.startsWith('cenarios/')) p.cenarios.push(dado as Cenario);
@@ -50,6 +53,7 @@ export const montarRegistro = (arquivos: Arquivos): Registro => {
     monstros: indexar(pacotes.flatMap((p) => p.monstros)),
     cenarios: indexar(pacotes.flatMap((p) => p.cenarios)),
     conquistas: pacotes.flatMap((p) => p.conquistas),
+    personagens: pacotes.flatMap((p) => p.personagens),
   };
 };
 
@@ -98,6 +102,7 @@ export const validarRegistro = (r: Registro): string[] => {
     }
     for (const id of p.aventura.cenarios) if (!r.cenarios[id]) erros.push(`aventura ${p.aventura.id}: cenário "${id}" não existe`);
     for (const c of p.conquistas) prefixo(c.id, `conquista ${c.id}`);
+    for (const pe of p.personagens) prefixo(pe.id, `personagem ${pe.id}`);
   }
   return erros;
 };

@@ -39,5 +39,12 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "cavaleiro",
+    "pele": "#5d6470",
+    "roupa": "#2d323b",
+    "destaque": "#b9c3d6",
+    "prompt": "a tall knight in dark mist-covered armor, faceless closed helm with mist leaking from the visor, heavy sword"
+  }
 }

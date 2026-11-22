@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { criarJogador } from '../../engine/save';
 import type { Jogador } from '../../engine/types';
+import { Capa } from '../arte/Capa';
 
 interface Props {
   conta?: ReactNode;
@@ -8,16 +9,20 @@ interface Props {
   onCriar: (j: Jogador) => void;
   onAbrir: (id: string) => void;
   onCampanha: () => void;
+  onLenda: () => void;
 }
 
-export function Jogadores({ conta, jogadores, onCriar, onAbrir, onCampanha }: Props) {
+export function Jogadores({ conta, jogadores, onCriar, onAbrir, onCampanha, onLenda }: Props) {
   const [nome, setNome] = useState('');
   return (
     <div className="tela">
       <header className="capa">
-        <p className="rotulo">Estúdio Gamer Neeko apresenta</p>
-        <h1>A Estrela Partida</h1>
-        <p className="narracao">Nenhuma luz brilha sozinha.</p>
+        <Capa />
+        <div className="capa__titulo">
+          <p className="rotulo">Estúdio Gamer Neeko apresenta</p>
+          <h1>A Estrela Partida</h1>
+          <p className="narracao">Nenhuma luz brilha sozinha.</p>
+        </div>
       </header>
 
       {conta}
@@ -50,9 +55,14 @@ export function Jogadores({ conta, jogadores, onCriar, onAbrir, onCampanha }: Pr
         </form>
       </section>
 
-      <button className="botao botao--principal" onClick={onCampanha} disabled={!jogadores.some((j) => j.herois.length)}>
-        Ir para a campanha
-      </button>
+      <div className="acoes">
+        <button className="botao botao--principal" onClick={onCampanha} disabled={!jogadores.some((j) => j.herois.length)}>
+          Ir para a campanha
+        </button>
+        <button className="botao" onClick={onLenda}>
+          Livro da Lenda
+        </button>
+      </div>
     </div>
   );
 }

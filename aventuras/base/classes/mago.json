@@ -105,7 +105,16 @@
         }
       ],
       "idade": 12,
-      "companheiro": "Sr. Folhas, o livro falante"
+      "companheiro": "Sr. Folhas, o livro falante",
+      "visual": {
+        "forma": "humano",
+        "pele": "#e8c2a0",
+        "cabelo": "#5a3a24",
+        "roupa": "#5b3b7a",
+        "destaque": "#ff9f43",
+        "item": "livro",
+        "prompt": "a clumsy curious 12-year-old boy apprentice wizard, messy brown hair, oversized purple robe with ink stains, holding a grumpy talking spellbook with eyes on its cover, small fire spark at his fingertips"
+      }
     },
     {
       "id": "base.mago.nara",
@@ -194,7 +203,17 @@
         }
       ],
       "idade": 14,
-      "companheiro": "Sr. Folhas, o livro falante"
+      "companheiro": "Sr. Folhas, o livro falante",
+      "visual": {
+        "forma": "humano",
+        "pele": "#c98f6a",
+        "cabelo": "#1d1f2e",
+        "roupa": "#24486e",
+        "destaque": "#9fe3ff",
+        "detalhe": "trancas",
+        "item": "runa",
+        "prompt": "a disciplined proud 14-year-old girl apprentice mage, long black braid, tidy blue robes with silver runes, glowing icy blue rune circle floating above her hand, determined serious face"
+      }
     }
   ],
   "cartas": [

@@ -12,6 +12,8 @@ export interface Unidade {
   lado: 'heroi' | 'monstro';
   nome: string;
   defId: string; // id da classe ou do monstro
+  /** id usado para achar o retrato (versão do herói ou monstro). */
+  arteId: string;
   pos: Hex;
   vida: number;
   vidaMax: number;
@@ -143,6 +145,7 @@ export const criarBatalha = (
       lado: 'heroi',
       nome: p.heroi.nome,
       defId: p.classe.id,
+      arteId: p.heroi.versao,
       pos: inicios[i],
       vida,
       vidaMax: vida,
@@ -177,6 +180,7 @@ export const criarBatalha = (
       lado: 'monstro',
       nome: m.nome,
       defId: m.id,
+      arteId: m.id,
       pos: offsetParaAxial(ini.linha, ini.coluna),
       vida: vidaM,
       vidaMax: vidaM,

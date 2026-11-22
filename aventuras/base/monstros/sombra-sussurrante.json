@@ -52,5 +52,12 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "sombra",
+    "pele": "#8a93a6",
+    "roupa": "#3a4150",
+    "destaque": "#cfd8ff",
+    "prompt": "a wispy grey mist phantom with a vague human shape and glowing pale eyes, whispering, fading at the edges"
+  }
 }

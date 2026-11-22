@@ -54,5 +54,12 @@
     }
   ],
   "chefe": true,
-  "vidaPorHeroi": 7
+  "vidaPorHeroi": 7,
+  "visual": {
+    "forma": "mascara",
+    "pele": "#e9e4dc",
+    "roupa": "#4a1f3a",
+    "destaque": "#e05a8a",
+    "prompt": "an elegant mysterious masked lady in a dark crimson ball gown, porcelain mask, many other masks floating around her, illusion magic"
+  }
 }

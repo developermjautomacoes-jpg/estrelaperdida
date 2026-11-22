@@ -7,9 +7,13 @@ interface Props {
   lider?: boolean;
   destaque?: 'cima' | 'baixo';
   onClick?: () => void;
+  /** Posição na mão (atraso da animação de entrada). */
+  indice?: number;
+  /** Cor do herói no topo da carta. */
+  cor?: string;
 }
 
-export function Carta({ carta, selecionada, lider, destaque, onClick }: Props) {
+export function Carta({ carta, selecionada, lider, destaque, onClick, indice = 0, cor }: Props) {
   return (
     <button
       type="button"
@@ -17,7 +21,9 @@ export function Carta({ carta, selecionada, lider, destaque, onClick }: Props) {
       onClick={onClick}
       disabled={!onClick}
       aria-pressed={selecionada}
+      style={{ animationDelay: `${indice * 60}ms`, ['--cor-heroi' as string]: cor ?? '#6cc3ff' }}
     >
+      <span className="carta__brilho" aria-hidden="true" />
       <div className="carta__topo">
         <span className="carta__nome">{carta.nome}</span>
         <span className={`carta__ini ${lider ? 'carta__ini--lider' : ''}`} title="Iniciativa">

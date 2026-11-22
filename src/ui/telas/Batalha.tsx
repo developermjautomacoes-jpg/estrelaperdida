@@ -16,7 +16,8 @@ import {
   unidade,
   type EstadoBatalha,
 } from '../../engine/batalha';
-import type { Cenario, Monstro } from '../../engine/types';
+import type { Cenario, Monstro, Visual } from '../../engine/types';
+import { Retrato } from '../arte/Retrato';
 import { Carta } from '../Carta';
 import { Tabuleiro } from '../Tabuleiro';
 import { descreverAcao, NOMES_CONDICAO } from '../texto';
@@ -25,11 +26,12 @@ interface Props {
   cenario: Cenario;
   monstros: Record<string, Monstro>;
   inicial: EstadoBatalha;
+  visuais: Record<string, Visual | undefined>;
   onFim: (e: EstadoBatalha) => void;
   onSair: () => void;
 }
 
-export function Batalha({ cenario, monstros, inicial, onFim, onSair }: Props) {
+export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: Props) {
   const [e, setE] = useState(inicial);
   const [erro, setErro] = useState<string>();
   const [selecao, setSelecao] = useState<Record<string, string[]>>({});
@@ -91,8 +93,22 @@ export function Batalha({ cenario, monstros, inicial, onFim, onSair }: Props) {
 
       <main className="batalha__corpo">
         <section className="batalha__mapa">
+          {e.fase === 'acao' && e.ordem.length > 0 && (
+            <div className="ordem" key={e.rodada} aria-label="Ordem de iniciativa">
+              {e.ordem.map((id, i) => {
+                const u = unidade(e, id);
+                return (
+                  <div key={id} className={`ordem__item ordem__item--${u.lado} ${i === e.vez ? 'ordem__item--vez' : ''} ${u.fora || i < e.vez ? 'ordem__item--feito' : ''}`} style={{ animationDelay: `${i * 90}ms` }} title={u.nome}>
+                    <Retrato id={u.arteId} visual={visuais[u.arteId]} className="ordem__retrato" titulo={u.nome} />
+                  </div>
+                );
+              })}
+            </div>
+          )}
           <Tabuleiro
             estado={e}
+            ambiente={cenario.ambiente}
+            visuais={visuais}
             hexesValidos={validos.hexes}
             unidadesValidas={validos.unidades}
             vezDe={e.turno?.unidadeId}
@@ -135,16 +151,21 @@ export function Batalha({ cenario, monstros, inicial, onFim, onSair }: Props) {
                 const sel = selecao[h.unidadeId] ?? [];
                 return (
                   <div className="bloco" key={h.unidadeId}>
-                    <h3>
-                      {u.nome} {pronto && <span className="etiqueta">pronto</span>}
-                    </h3>
+                    <div className="cabeca-heroi">
+                      <Retrato id={u.arteId} visual={visuais[u.arteId]} className="cabeca-heroi__retrato" titulo={u.nome} />
+                      <h3>
+                        {u.nome} {pronto && <span className="etiqueta">pronto</span>}
+                      </h3>
+                    </div>
                     <p className="dica">
                       Escolha 2 cartas. A primeira define a iniciativa (menor age antes). Mão {h.mao.length} · descarte {h.descarte.length} · perdidas {h.perdidas.length}
                     </p>
                     <div className="mao">
-                      {h.mao.map((c) => (
+                      {h.mao.map((c, i) => (
                         <Carta
                           key={c.id}
+                          indice={i}
+                          cor={visuais[u.arteId]?.destaque}
                           carta={c}
                           selecionada={sel.includes(c.id) || h.escolhidas.some((x) => x.id === c.id)}
                           lider={(sel[0] ?? h.lider) === c.id}
@@ -172,14 +193,17 @@ export function Batalha({ cenario, monstros, inicial, onFim, onSair }: Props) {
 
           {e.fase === 'acao' && heroiDaVez && e.turno && (
             <div className="bloco">
-              <h3>Vez de {unidade(e, heroiDaVez.unidadeId).nome}</h3>
+              <div className="cabeca-heroi">
+                <Retrato id={unidade(e, heroiDaVez.unidadeId).arteId} visual={visuais[unidade(e, heroiDaVez.unidadeId).arteId]} className="cabeca-heroi__retrato" />
+                <h3>Vez de {unidade(e, heroiDaVez.unidadeId).nome}</h3>
+              </div>
               {!e.turno.metadesEscolhidas ? (
                 <>
                   <p className="dica">Use a parte de cima de uma carta e a de baixo da outra.</p>
                   <div className="mao">
-                    {heroiDaVez.escolhidas.map((c) => (
+                    {heroiDaVez.escolhidas.map((c, i) => (
                       <div key={c.id} className="escolha-metade">
-                        <Carta carta={c} />
+                        <Carta carta={c} indice={i} cor={visuais[unidade(e, heroiDaVez.unidadeId).arteId]?.destaque} />
                         <button className="botao" onClick={() => fazer(() => escolherMetades(e, c.id))}>
                           Cima desta
                         </button>

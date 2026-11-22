@@ -102,7 +102,17 @@
           }
         }
       ],
-      "idade": 16
+      "idade": 16,
+      "visual": {
+        "forma": "ana",
+        "pele": "#e0b48e",
+        "cabelo": "#c4421f",
+        "roupa": "#5b4636",
+        "destaque": "#ff8a3d",
+        "detalhe": "trancas",
+        "item": "martelo",
+        "prompt": "a stout 16-year-old dwarf girl blacksmith apprentice, fiery red braided hair, freckles, soot on her cheeks, leather apron over chainmail, holding a heavy forge hammer whose head glows with embers, stubborn confident grin"
+      }
     },
     {
       "id": "base.defensor.rocco",
@@ -191,7 +201,17 @@
           }
         }
       ],
-      "idade": 16
+      "idade": 16,
+      "visual": {
+        "forma": "ana",
+        "pele": "#d9a982",
+        "cabelo": "#a3361c",
+        "roupa": "#4a4d55",
+        "destaque": "#c9a24a",
+        "detalhe": "barba",
+        "item": "escudo",
+        "prompt": "a stout 16-year-old dwarf boy, short copper-red hair and a first scruffy beard, serious guilty eyes, iron plate armor with a huge tower shield engraved with a gate, cautious defensive stance"
+      }
     }
   ],
   "cartas": [

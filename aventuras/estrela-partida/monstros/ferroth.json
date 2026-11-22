@@ -54,5 +54,12 @@
     }
   ],
   "chefe": true,
-  "vidaPorHeroi": 8
+  "vidaPorHeroi": 8,
+  "visual": {
+    "forma": "colosso",
+    "pele": "#5a5652",
+    "roupa": "#3a3632",
+    "destaque": "#ff6a3a",
+    "prompt": "a colossal hollow stone golem corrupted by grey mist, cracked body, a dim red-orange crack in its chest, towering and sorrowful"
+  }
 }

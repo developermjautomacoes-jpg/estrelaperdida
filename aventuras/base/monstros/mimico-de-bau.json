@@ -34,5 +34,12 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "mimico",
+    "pele": "#8a5a32",
+    "roupa": "#c9a24a",
+    "destaque": "#ff5a5a",
+    "prompt": "a treasure chest monster with sharp wooden teeth and a long tongue, gold coins spilling, comic but menacing"
+  }
 }

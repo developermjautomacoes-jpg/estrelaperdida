@@ -1,0 +1,105 @@
+[
+  {
+    "id": "estrela.orvalha",
+    "nome": "Mestra Orvalha",
+    "papel": "Líder da Guilda da Lanterna",
+    "descricao": "Capitã pirata aposentada com perna de madeira. Entrega as missões e narra o início dos cenários.",
+    "visual": {
+      "forma": "humano",
+      "pele": "#c99572",
+      "cabelo": "#d9d4cc",
+      "roupa": "#5a2a2a",
+      "destaque": "#d6b25e",
+      "detalhe": "tapa-olho",
+      "item": "leme",
+      "prompt": "a tough elderly woman retired pirate captain, white hair, eye patch, wooden leg, long red captain coat, guild leader"
+    }
+  },
+  {
+    "id": "estrela.bartolomeu",
+    "nome": "Bartolomeu",
+    "papel": "Taverneiro do Polvo Risonho",
+    "descricao": "Polvo taverneiro que serve oito canecas ao mesmo tempo. Conta boatos e dá dicas.",
+    "visual": {
+      "forma": "polvo",
+      "pele": "#c96a8a",
+      "roupa": "#e9dcc6",
+      "destaque": "#ffcf6a",
+      "prompt": "a cheerful purple-pink octopus tavern keeper wearing a little apron, holding eight mugs of cider with eight tentacles"
+    }
+  },
+  {
+    "id": "estrela.selene",
+    "nome": "Vovó Selene",
+    "papel": "Guardiã da Biblioteca do Farol",
+    "descricao": "Avó de Aurora e Elias, última Guardiã da Lanterna. Cega desde que selou Morvhen.",
+    "visual": {
+      "forma": "humano",
+      "pele": "#e2c2a8",
+      "cabelo": "#f0f0f0",
+      "roupa": "#3a3f5a",
+      "destaque": "#6cc3ff",
+      "detalhe": "olhos-vendados",
+      "item": "cajado",
+      "prompt": "a wise blind old woman with a cloth band over her eyes, long white hair, blue shawl, wooden staff with a tiny blue flame, sitting among old books"
+    }
+  },
+  {
+    "id": "estrela.nina",
+    "nome": "Nina Moeda",
+    "papel": "Mercadora do Mercado das Marés",
+    "descricao": "Goblin mercadora órfã, que vende objetos achados em vilas engolidas pela névoa.",
+    "visual": {
+      "forma": "goblin",
+      "pele": "#8fbf6a",
+      "cabelo": "#3a2a1a",
+      "roupa": "#7a5a2a",
+      "destaque": "#ffd25a",
+      "prompt": "a small clever goblin girl merchant, green skin, big ears, patched backpack full of trinkets and scavenged objects"
+    }
+  },
+  {
+    "id": "estrela.gundar",
+    "nome": "Mestre Gundar",
+    "papel": "Pai dos gêmeos Martelacesa",
+    "descricao": "Ferreiro que segurou o portão das minas. Virou um Oco e guarda as minas para Morvhen.",
+    "visual": {
+      "forma": "ana",
+      "pele": "#b8a898",
+      "cabelo": "#8a8a8a",
+      "roupa": "#3a3a3a",
+      "destaque": "#9aa0a8",
+      "detalhe": "barba",
+      "item": "martelo",
+      "prompt": "a big old dwarf blacksmith turned hollow by grey mist, long grey braided beard, empty pale eyes, still gripping his hammer, sad and haunting"
+    }
+  },
+  {
+    "id": "estrela.brisa",
+    "nome": "Capitão Brisa",
+    "papel": "Navegador do navio voador",
+    "descricao": "Leva os heróis às Ilhas de Aeria e à cidade afundada de Maréalta.",
+    "visual": {
+      "forma": "humano",
+      "pele": "#8a5a3a",
+      "cabelo": "#1a1a1a",
+      "roupa": "#2a4a6a",
+      "destaque": "#9fe3ff",
+      "detalhe": "chapeu",
+      "prompt": "a dashing sky-ship captain, dark skin, tricorn hat with goggles, blue coat, standing at the wheel of a flying ship"
+    }
+  },
+  {
+    "id": "estrela.sr-folhas",
+    "nome": "Sr. Folhas",
+    "papel": "Livro de feitiços falante",
+    "descricao": "Livro sarcástico e protetor. Foi um Guardião da Lanterna, transformado em livro por Morvhen.",
+    "visual": {
+      "forma": "livro",
+      "pele": "#7a4a2a",
+      "roupa": "#c9a24a",
+      "destaque": "#ff9f43",
+      "prompt": "a grumpy old talking spellbook with leather cover, two expressive eyes and bushy eyebrows on the cover, pages flapping like a mouth"
+    }
+  }
+]

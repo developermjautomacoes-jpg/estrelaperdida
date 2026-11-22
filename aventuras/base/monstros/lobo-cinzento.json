@@ -49,5 +49,12 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "lobo",
+    "pele": "#7a7f88",
+    "roupa": "#4a4e56",
+    "destaque": "#e8f0ff",
+    "prompt": "a lean grey wolf with misty fur and pale glowing eyes, snarling silently"
+  }
 }

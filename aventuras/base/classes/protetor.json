@@ -99,7 +99,15 @@
             ]
           }
         }
-      ]
+      ],
+      "visual": {
+        "forma": "golem",
+        "pele": "#7b7f74",
+        "roupa": "#4f6b3a",
+        "destaque": "#7cc8ff",
+        "detalhe": "musgo",
+        "prompt": "a gentle stone golem covered in moss and tiny flowers, round friendly face carved in rock, a glowing blue crack in its chest leaking starlight, a butterfly resting on its finger, kind innocent eyes"
+      }
     },
     {
       "id": "base.protetor.lasca",
@@ -183,7 +191,15 @@
             ]
           }
         }
-      ]
+      ],
+      "visual": {
+        "forma": "golem",
+        "pele": "#8d8a9a",
+        "roupa": "#5a4f78",
+        "destaque": "#b48cff",
+        "detalhe": "cristais",
+        "prompt": "a slender stone golem woman with violet crystal shards growing from her shoulders and head like a crown, a glowing crack of starlight in her chest, sharp ironic expression, arms crossed"
+      }
     }
   ],
   "cartas": [

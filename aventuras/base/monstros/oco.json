@@ -49,5 +49,13 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "oco",
+    "pele": "#a3a39a",
+    "roupa": "#55524a",
+    "destaque": "#9aa0a8",
+    "detalhe": "careca",
+    "prompt": "a hollow villager, grey drained skin, empty dark eye sockets, tattered peasant clothes, shambling, mist coming out of its mouth, sad rather than gory"
+  }
 }

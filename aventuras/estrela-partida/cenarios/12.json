@@ -15,5 +15,6 @@
   "desbloqueia": [
     "estrela.cenario-13"
   ],
-  "rascunho": true
+  "rascunho": true,
+  "ambiente": "minas"
 }

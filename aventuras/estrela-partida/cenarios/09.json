@@ -15,5 +15,6 @@
   "desbloqueia": [
     "estrela.cenario-10"
   ],
-  "rascunho": true
+  "rascunho": true,
+  "ambiente": "biblioteca"
 }

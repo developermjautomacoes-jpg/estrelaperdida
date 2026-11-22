@@ -96,7 +96,17 @@
             ]
           }
         }
-      ]
+      ],
+      "visual": {
+        "forma": "humano",
+        "pele": "#f1cdb0",
+        "cabelo": "#e3b04b",
+        "roupa": "#2f4e7a",
+        "destaque": "#6cc3ff",
+        "detalhe": "coque",
+        "item": "lanterna",
+        "prompt": "a brave optimistic young woman lighthouse keeper healer, golden hair in a bun, navy blue coat, holding up an old lantern burning with bright blue fire, warm hopeful smile"
+      }
     },
     {
       "id": "base.curandeiro.elias",
@@ -183,7 +193,16 @@
             ]
           }
         }
-      ]
+      ],
+      "visual": {
+        "forma": "humano",
+        "pele": "#d8b294",
+        "cabelo": "#2a2a30",
+        "roupa": "#2c2c34",
+        "destaque": "#f2d27a",
+        "item": "sino",
+        "prompt": "a quiet melancholic young man gravedigger of the lighthouse, black hair, long dark coat, holding a small brass bell and a candle, gentle sad eyes"
+      }
     }
   ],
   "cartas": [

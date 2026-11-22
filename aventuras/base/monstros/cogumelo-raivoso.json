@@ -34,5 +34,12 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "cogumelo",
+    "pele": "#c96a5a",
+    "roupa": "#e9dcc6",
+    "destaque": "#d6ff8a",
+    "prompt": "an angry walking mushroom creature with a red spotted cap, glowing spores drifting around it, small furious face"
+  }
 }

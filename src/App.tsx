@@ -3,13 +3,14 @@ import type { User } from '@supabase/supabase-js';
 import { registro } from './content/registro';
 import { criarBatalha, type EstadoBatalha } from './engine/batalha';
 import { armazenamentoLocal, atualizarJogador, carregar, salvar } from './engine/save';
-import type { Aventura, Cenario, Jogador, Save } from './engine/types';
+import type { Aventura, Cenario, Jogador, Save, Visual } from './engine/types';
 import { finalizarBatalha } from './ui/finalizar';
 import { aoMudarSessao, baixarSave, enviarSave, escolherSave, usuarioAtual } from './nuvem/nuvem';
 import { Conta, type StatusNuvem } from './ui/Conta';
 import { Batalha } from './ui/telas/Batalha';
 import { Campanha, type Escalacao } from './ui/telas/Campanha';
 import { Jogadores } from './ui/telas/Jogadores';
+import { Lenda } from './ui/telas/Lenda';
 import { Perfil } from './ui/telas/Perfil';
 import { Resultado } from './ui/telas/Resultado';
 
@@ -17,12 +18,20 @@ type Tela =
   | { nome: 'jogadores' }
   | { nome: 'perfil'; jogadorId: string }
   | { nome: 'campanha' }
+  | { nome: 'lenda' }
   | { nome: 'batalha'; aventura: Aventura; cenario: Cenario; estado: EstadoBatalha }
   | { nome: 'resultado'; aventura: Aventura; cenario: Cenario; estado: EstadoBatalha };
 
 export default function App() {
   const reg = useMemo(() => registro(), []);
   const arm = useMemo(() => armazenamentoLocal(), []);
+  const visuais = useMemo(() => {
+    const m: Record<string, Visual | undefined> = {};
+    for (const c of Object.values(reg.classes)) for (const v of c.versoes) m[v.id] = v.visual;
+    for (const mo of Object.values(reg.monstros)) m[mo.id] = mo.visual;
+    for (const p of reg.personagens) m[p.id] = p.visual;
+    return m;
+  }, [reg]);
   const [save, setSave] = useState<Save>(() => carregar(arm));
   const [tela, setTela] = useState<Tela>({ nome: 'jogadores' });
 
@@ -93,8 +102,11 @@ export default function App() {
           onCriar={gravarJogador}
           onAbrir={(id) => setTela({ nome: 'perfil', jogadorId: id })}
           onCampanha={() => setTela({ nome: 'campanha' })}
+          onLenda={() => setTela({ nome: 'lenda' })}
         />
       );
+    case 'lenda':
+      return <Lenda classes={reg.classes} monstros={reg.monstros} personagens={reg.personagens} onVoltar={() => setTela({ nome: 'jogadores' })} />;
     case 'perfil': {
       const j = save.jogadores.find((x) => x.id === tela.jogadorId)!;
       return <Perfil jogador={j} classes={reg.classes} conquistas={reg.conquistas} onSalvar={gravarJogador} onVoltar={() => setTela({ nome: 'jogadores' })} />;
@@ -108,6 +120,7 @@ export default function App() {
           cenario={tela.cenario}
           monstros={reg.monstros}
           inicial={tela.estado}
+          visuais={visuais}
           onFim={(estado) => setTela({ ...tela, nome: 'resultado', estado })}
           onSair={() => setTela({ nome: 'campanha' })}
         />

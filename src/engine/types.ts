@@ -47,6 +47,36 @@ export interface Carta {
   baixo: MetadeCarta;
 }
 
+/**
+ * Como o personagem é desenhado. O jogo usa a arte pintada (src/assets/arte/<id>.png)
+ * quando existir; senão desenha um retrato em SVG a partir destes dados.
+ */
+export interface Visual {
+  forma:
+    | 'ana' | 'elfo' | 'golem' | 'vulpino' | 'humano' | 'goblin' | 'polvo' | 'livro'
+    | 'sombra' | 'oco' | 'lobo' | 'cogumelo' | 'esqueleto' | 'cavaleiro' | 'mimico'
+    | 'sapo' | 'mascara' | 'colosso' | 'rei';
+  pele: string;
+  cabelo?: string;
+  roupa: string;
+  destaque: string;
+  detalhe?: 'barba' | 'trancas' | 'capuz' | 'chapeu' | 'tapa-olho' | 'coque' | 'careca' | 'cristais' | 'musgo' | 'coroa' | 'olhos-vendados';
+  item?: 'martelo' | 'escudo' | 'arco' | 'besta' | 'adagas' | 'lanterna' | 'sino' | 'livro' | 'cajado' | 'runa' | 'leque' | 'leme';
+  companheiro?: 'coruja' | 'lince';
+  /** Descrição em inglês para geradores de imagem (pacote de prompts). */
+  prompt?: string;
+}
+
+export interface Personagem {
+  id: string;
+  nome: string;
+  papel: string;
+  descricao: string;
+  visual: Visual;
+}
+
+export type Ambiente = 'porto' | 'bosque' | 'minas' | 'pantano' | 'mar' | 'ceu' | 'nevoa' | 'deserto' | 'biblioteca' | 'cratera';
+
 export interface VersaoHeroi {
   id: string;
   nome: string;
@@ -56,6 +86,7 @@ export interface VersaoHeroi {
   companheiro?: string;
   /** Cartas exclusivas desta versão (somadas às cartas da classe). */
   cartas: Carta[];
+  visual?: Visual;
 }
 
 export interface Talento {
@@ -98,6 +129,7 @@ export interface Monstro {
   escudo?: number;
   chefe?: boolean;
   habilidades: HabilidadeMonstro[];
+  visual?: Visual;
 }
 
 export type Objetivo =
@@ -110,6 +142,7 @@ export interface Cenario {
   numero: string;
   nome: string;
   ato: number;
+  ambiente?: Ambiente;
   introducao: string;
   conclusao: string;
   /**

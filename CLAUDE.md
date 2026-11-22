@@ -29,7 +29,10 @@ npm run build
   - `base/` — biblioteca: 6 classes (cada uma com versão feminina e masculina), monstros comuns, conquistas pessoais.
   - `estrela-partida/` — a primeira campanha.
 - `src/ui/` — interface React (telas, tabuleiro SVG, cartas).
-- `docs/` — documento de design (GDD) e guia para criar aventuras.
+- `src/ui/arte/` — retratos em SVG (desenhados a partir do campo `visual` do JSON) e capa.
+- `src/assets/arte/` — arte pintada: `<id>.png` substitui o retrato SVG automaticamente
+  (`capa.png`, `ambiente.<regiao>.png` para os fundos). Prompts em `docs/prompts-arte.md`.
+- `docs/` — documento de design (GDD), guia para criar aventuras e pacote de prompts de arte.
 
 ## Regras do projeto
 

@@ -39,5 +39,14 @@
         }
       ]
     }
-  ]
+  ],
+  "visual": {
+    "forma": "esqueleto",
+    "pele": "#ddd3bd",
+    "roupa": "#5f5a52",
+    "destaque": "#7cc8ff",
+    "detalhe": "barba",
+    "item": "escudo",
+    "prompt": "an ancient dwarf skeleton guardian with a stone beard, rusty helmet and round shield, faint blue light in its eye sockets, not gory"
+  }
 }

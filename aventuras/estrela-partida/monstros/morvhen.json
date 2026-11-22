@@ -55,5 +55,13 @@
     }
   ],
   "chefe": true,
-  "vidaPorHeroi": 10
+  "vidaPorHeroi": 10,
+  "visual": {
+    "forma": "rei",
+    "pele": "#d8d8d8",
+    "roupa": "#20232c",
+    "destaque": "#8fb4ff",
+    "detalhe": "coroa",
+    "prompt": "a tragic ancient knight-king in ornate dark armor wrapped in swirling grey mist, a smooth blank faceless mask instead of a face, broken lantern at his belt, melancholic and imposing"
+  }
 }

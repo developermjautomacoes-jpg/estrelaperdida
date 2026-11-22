@@ -97,7 +97,16 @@
             ]
           }
         }
-      ]
+      ],
+      "visual": {
+        "forma": "vulpino",
+        "pele": "#d9783a",
+        "roupa": "#3b2f4a",
+        "destaque": "#f5c542",
+        "detalhe": "chapeu",
+        "item": "adagas",
+        "prompt": "a charming fox-folk rogue, orange fur, two fluffy tails, wide-brimmed feathered hat, purple patched coat, twin daggers, curls of smoke around him, cocky smirk"
+      }
     },
     {
       "id": "base.ladino.salvia",
@@ -179,7 +188,16 @@
             ]
           }
         }
-      ]
+      ],
+      "visual": {
+        "forma": "vulpino",
+        "pele": "#b5602e",
+        "roupa": "#2b3a34",
+        "destaque": "#8fd16a",
+        "detalhe": "capuz",
+        "item": "adagas",
+        "prompt": "a cold calculating fox-folk woman assassin, dark russet fur, hooded dark green cloak, belt of throwing knives and small poison vials, narrow amber eyes"
+      }
     }
   ],
   "cartas": [
