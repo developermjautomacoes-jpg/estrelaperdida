@@ -1,0 +1,38 @@
+{
+  "id": "base.mimico-de-bau",
+  "nome": "Mímico de Baú",
+  "descricao": "Parece tesouro, mas morde.",
+  "vida": 7,
+  "movimento": 1,
+  "ataque": 4,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 40,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 1
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 25,
+      "acoes": [
+        {
+          "tipo": "atacar",
+          "valor": 3,
+          "alcance": 1,
+          "aplica": [
+            "imobilizado"
+          ]
+        }
+      ]
+    }
+  ]
+}

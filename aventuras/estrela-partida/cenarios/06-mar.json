@@ -1,0 +1,23 @@
+{
+  "id": "estrela.cenario-06-mar",
+  "numero": "06-mar",
+  "nome": "Rota do Mar: Maréalta",
+  "ato": 2,
+  "introducao": "A maré baixa revela as ruínas de Maréalta. Vocês têm poucas rodadas antes da água voltar.",
+  "conclusao": "O Capitão Brisa recolhe vocês no último instante, com o Cristal da Alegria em mãos.",
+  "objetivo": {
+    "tipo": "sobreviver",
+    "rodadas": 8
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [
+    "estrela.cenario-07"
+  ],
+  "rascunho": true
+}

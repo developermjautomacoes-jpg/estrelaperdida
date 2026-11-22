@@ -1,0 +1,17 @@
+{
+  "id": "estrela.cenario-s6",
+  "numero": "s6",
+  "nome": "A Vila de Morvhen",
+  "ato": 0,
+  "introducao": "Cenário secreto. Como desbloquear: Ler todas as páginas do Livro da Lenda.",
+  "conclusao": "Um segredo da lenda foi revelado.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 10,
+    "ouro": 15
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

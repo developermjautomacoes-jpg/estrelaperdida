@@ -1,0 +1,20 @@
+{
+  "id": "estrela.cenario-15",
+  "numero": "15",
+  "nome": "A Estrela Partida",
+  "ato": 3,
+  "introducao": "A Cratera do Silêncio. Morvhen espera, sem rosto, ao lado dos fragmentos da Estrela.",
+  "conclusao": "Nenhuma luz brilha sozinha.",
+  "objetivo": {
+    "tipo": "derrotar_chefe"
+  },
+  "recompensas": {
+    "xp": 25,
+    "ouro": 30,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

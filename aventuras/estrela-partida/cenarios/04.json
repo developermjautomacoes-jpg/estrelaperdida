@@ -1,0 +1,22 @@
+{
+  "id": "estrela.cenario-04",
+  "numero": "04",
+  "nome": "O Portão de Gundar",
+  "ato": 1,
+  "introducao": "O portão que Mestre Gundar segurou continua de pé. Do outro lado, só névoa — e passos pesados.",
+  "conclusao": "Atrás do portão, o segundo Cristal Astral. E um capacete de ferreiro que os gêmeos reconhecem.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [
+    "estrela.cenario-05"
+  ],
+  "rascunho": true
+}

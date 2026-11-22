@@ -1,0 +1,33 @@
+{
+  "id": "estrela.aventura",
+  "prefixo": "estrela",
+  "nome": "A Estrela Partida",
+  "versao": 1,
+  "descricao": "Os heróis precisam reunir os sete fragmentos de uma estrela caída antes que a Névoa Silenciosa apague as cores e as memórias do mundo.",
+  "cenarioInicial": "estrela.cenario-00",
+  "cenarios": [
+    "estrela.cenario-00",
+    "estrela.cenario-01",
+    "estrela.cenario-02",
+    "estrela.cenario-03",
+    "estrela.cenario-04",
+    "estrela.cenario-05",
+    "estrela.cenario-06-mar",
+    "estrela.cenario-06-ceu",
+    "estrela.cenario-07",
+    "estrela.cenario-08",
+    "estrela.cenario-09",
+    "estrela.cenario-10",
+    "estrela.cenario-11",
+    "estrela.cenario-12",
+    "estrela.cenario-13",
+    "estrela.cenario-14",
+    "estrela.cenario-15",
+    "estrela.cenario-s1",
+    "estrela.cenario-s2",
+    "estrela.cenario-s3",
+    "estrela.cenario-s4",
+    "estrela.cenario-s5",
+    "estrela.cenario-s6"
+  ]
+}

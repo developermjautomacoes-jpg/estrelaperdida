@@ -1,0 +1,445 @@
+{
+  "id": "base.mago",
+  "nome": "Mago",
+  "papel": "Dano em área",
+  "dificuldade": "dificil",
+  "vida": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "tamanhoMao": 8,
+  "segredo": "O Sr. Folhas foi um Guardião da Lanterna, transformado em livro por Morvhen há 300 anos. Cada feitiço lançado com ele apaga uma página da memória dele.",
+  "versoes": [
+    {
+      "id": "base.mago.kael",
+      "nome": "Kael",
+      "genero": "m",
+      "descricao": "O aprendiz mais desastrado da Biblioteca do Farol, curioso e inseguro. Algumas magias dele saem diferentes do planejado.",
+      "cartas": [
+        {
+          "id": "base.mago.kael.bola-de-fogo-quase-certa",
+          "nome": "Bola de Fogo Quase Certa",
+          "nivel": 1,
+          "iniciativa": 52,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 3,
+                "alvos": 2,
+                "aplica": [
+                  "queimando"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.mago.kael.gelo-do-capitulo-7",
+          "nome": "Gelo do Capítulo 7",
+          "nivel": 1,
+          "iniciativa": 38,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 3,
+                "aplica": [
+                  "imobilizado"
+                ]
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.mago.kael.pagina-arrancada",
+          "nome": "Página Arrancada",
+          "nivel": 1,
+          "iniciativa": 70,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 5,
+                "alcance": 4,
+                "alvos": 3
+              }
+            ],
+            "xp": 2,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        }
+      ],
+      "idade": 12,
+      "companheiro": "Sr. Folhas, o livro falante"
+    },
+    {
+      "id": "base.mago.nara",
+      "nome": "Nara Vesperal",
+      "genero": "f",
+      "descricao": "A melhor aluna, disciplinada e orgulhosa demais para pedir ajuda. Suas magias mais fortes custam a própria vida.",
+      "cartas": [
+        {
+          "id": "base.mago.nara.runa-de-gelo",
+          "nome": "Runa de Gelo",
+          "nivel": 1,
+          "iniciativa": 32,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 3,
+                "aplica": [
+                  "imobilizado"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.mago.nara.circulo-de-protecao",
+          "nome": "Círculo de Proteção",
+          "nivel": 1,
+          "iniciativa": 14,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 2,
+                "aliadosAdjacentes": true
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.mago.nara.palavra-proibida",
+          "nome": "Palavra Proibida",
+          "nivel": 1,
+          "iniciativa": 75,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "sacrificio",
+                "valor": 2
+              },
+              {
+                "tipo": "atacar",
+                "valor": 6,
+                "alcance": 3
+              }
+            ],
+            "xp": 2,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        }
+      ],
+      "idade": 14,
+      "companheiro": "Sr. Folhas, o livro falante"
+    }
+  ],
+  "cartas": [
+    {
+      "id": "base.mago.faisca",
+      "nome": "Faísca",
+      "nivel": 1,
+      "iniciativa": 20,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.raio",
+      "nome": "Raio",
+      "nivel": 1,
+      "iniciativa": 45,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 4
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.neblina-arcana",
+      "nome": "Neblina Arcana",
+      "nivel": 1,
+      "iniciativa": 25,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.explosao",
+      "nome": "Explosão",
+      "nivel": 1,
+      "iniciativa": 58,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 2,
+            "alvos": 3
+          }
+        ],
+        "xp": 1,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.concentracao",
+      "nome": "Concentração",
+      "nivel": 1,
+      "iniciativa": 35,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "fortalecer",
+            "alcance": 0
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.corrente-eletrica",
+      "nome": "Corrente Elétrica",
+      "nivel": 2,
+      "iniciativa": 40,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 3,
+            "alvos": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.prisao-de-gelo",
+      "nome": "Prisão de Gelo",
+      "nivel": 3,
+      "iniciativa": 30,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 4,
+            "aplica": [
+              "atordoado"
+            ]
+          }
+        ],
+        "xp": 1
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.mago.chuva-de-estrelas",
+      "nome": "Chuva de Estrelas",
+      "nivel": 4,
+      "iniciativa": 80,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 5,
+            "alcance": 5,
+            "alvos": 5
+          }
+        ],
+        "xp": 2,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    }
+  ],
+  "talentos": [
+    {
+      "id": "base.mago.talento-1",
+      "descricao": "Trocar dois -1 por dois +0",
+      "remove": [
+        "-1",
+        "-1"
+      ],
+      "adiciona": [
+        "+0",
+        "+0"
+      ]
+    },
+    {
+      "id": "base.mago.talento-2",
+      "descricao": "Trocar o -2 por +0",
+      "remove": [
+        "-2"
+      ],
+      "adiciona": [
+        "+0"
+      ]
+    },
+    {
+      "id": "base.mago.talento-3",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.mago.talento-4",
+      "descricao": "Adicionar dois +0 que queimam",
+      "adiciona": [
+        "queimando",
+        "queimando"
+      ]
+    },
+    {
+      "id": "base.mago.talento-5",
+      "descricao": "Trocar um -1 por +2",
+      "remove": [
+        "-1"
+      ],
+      "adiciona": [
+        "+2"
+      ]
+    }
+  ]
+}

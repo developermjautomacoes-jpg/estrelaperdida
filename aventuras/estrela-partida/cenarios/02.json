@@ -1,0 +1,22 @@
+{
+  "id": "estrela.cenario-02",
+  "numero": "02",
+  "nome": "Cogumelos em Fúria",
+  "ato": 1,
+  "introducao": "A clareira inteira está infestada. O companheiro animal do Atirador foi cercado.",
+  "conclusao": "No centro da clareira, preso nas raízes, brilha o primeiro Cristal Astral.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [
+    "estrela.cenario-03"
+  ],
+  "rascunho": true
+}

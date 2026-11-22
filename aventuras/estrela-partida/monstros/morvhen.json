@@ -1,0 +1,59 @@
+{
+  "id": "estrela.morvhen",
+  "nome": "Morvhen, o Rei Sem Rosto",
+  "descricao": "O maior dos Guardiões da Lanterna, consumido pela própria tristeza.",
+  "vida": 40,
+  "movimento": 3,
+  "ataque": 5,
+  "alcance": 3,
+  "habilidades": [
+    {
+      "iniciativa": 10,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 3,
+          "alvos": 2
+        }
+      ]
+    },
+    {
+      "iniciativa": 50,
+      "acoes": [
+        {
+          "tipo": "escudo",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 5,
+          "alcance": 3
+        }
+      ]
+    },
+    {
+      "iniciativa": 90,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 6,
+          "alcance": 3,
+          "aplica": [
+            "veneno"
+          ]
+        }
+      ]
+    }
+  ],
+  "chefe": true,
+  "vidaPorHeroi": 10
+}

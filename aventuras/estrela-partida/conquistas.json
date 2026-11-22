@@ -1,0 +1,35 @@
+[
+  {
+    "id": "estrela.coroa-quebrada",
+    "nome": "Coroa Quebrada",
+    "descricao": "Derrotar Grakk, o Rei Sapo.",
+    "tipo": "aventura",
+    "estatistica": "derrotou:estrela.grakk",
+    "quantidade": 1,
+    "recompensa": {
+      "ouro": 20
+    }
+  },
+  {
+    "id": "estrela.sete-luzes",
+    "nome": "Sete Luzes",
+    "descricao": "Recuperar os sete Cristais Astrais.",
+    "tipo": "aventura",
+    "estatistica": "cristais_recuperados",
+    "quantidade": 7,
+    "recompensa": {
+      "xp": 20
+    }
+  },
+  {
+    "id": "estrela.nenhuma-luz-sozinha",
+    "nome": "Nenhuma Luz Sozinha",
+    "descricao": "Alcançar o Final do Recomeço.",
+    "tipo": "aventura",
+    "estatistica": "final_recomeco",
+    "quantidade": 1,
+    "recompensa": {
+      "titulo": "Guardião da Estrela"
+    }
+  }
+]

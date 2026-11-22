@@ -1,0 +1,17 @@
+{
+  "id": "estrela.cenario-s4",
+  "numero": "s4",
+  "nome": "A Corrida das Raposas",
+  "ato": 0,
+  "introducao": "Cenário secreto. Como desbloquear: O Ladino vence o desafio da Matilha no cenário 7.",
+  "conclusao": "Um segredo da lenda foi revelado.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 10,
+    "ouro": 15
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

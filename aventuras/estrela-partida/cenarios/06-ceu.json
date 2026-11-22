@@ -1,0 +1,22 @@
+{
+  "id": "estrela.cenario-06-ceu",
+  "numero": "06-ceu",
+  "nome": "Rota do Céu: Pontes de Vento",
+  "ato": 2,
+  "introducao": "Pontes de vento ligam as Ilhas Flutuantes de Aeria. Um passo em falso e a queda é longa.",
+  "conclusao": "No pico mais alto, o Cristal da Liberdade gira sozinho no ar.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [
+    "estrela.cenario-07"
+  ],
+  "rascunho": true
+}

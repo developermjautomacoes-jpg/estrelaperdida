@@ -1,0 +1,33 @@
+{
+  "id": "estrela.cenario-14",
+  "numero": "14",
+  "nome": "A Biblioteca Perdida",
+  "ato": 3,
+  "introducao": "Uma biblioteca escondida guarda o feitiço que prendeu o Sr. Folhas.",
+  "conclusao": "O Sr. Folhas conta a história verdadeira de Morvhen.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-15"
+  ],
+  "rascunho": true,
+  "escolha": {
+    "id": "folhas",
+    "pergunta": "Devolver ao Sr. Folhas a forma humana?",
+    "opcoes": [
+      {
+        "id": "humano",
+        "texto": "Sim: ele vira o sábio Elandor"
+      },
+      {
+        "id": "livro",
+        "texto": "Não: ele continua como livro"
+      }
+    ]
+  }
+}

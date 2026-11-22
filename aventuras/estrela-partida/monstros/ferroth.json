@@ -1,0 +1,58 @@
+{
+  "id": "estrela.ferroth",
+  "nome": "Ferroth, o Colosso Oco",
+  "descricao": "Golem irmão dos Protetores, corrompido pela névoa.",
+  "vida": 34,
+  "movimento": 2,
+  "ataque": 5,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 75,
+      "acoes": [
+        {
+          "tipo": "escudo",
+          "valor": 2
+        },
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 5,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 85,
+      "acoes": [
+        {
+          "tipo": "atacar",
+          "valor": 6,
+          "alcance": 1,
+          "aplica": [
+            "atordoado"
+          ]
+        }
+      ]
+    },
+    {
+      "iniciativa": 55,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 1
+        }
+      ]
+    }
+  ],
+  "chefe": true,
+  "vidaPorHeroi": 8
+}

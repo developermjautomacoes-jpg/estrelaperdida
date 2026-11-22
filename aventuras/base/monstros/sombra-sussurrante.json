@@ -1,0 +1,56 @@
+{
+  "id": "base.sombra-sussurrante",
+  "nome": "Sombra Sussurrante",
+  "descricao": "Vulto de névoa que imita a voz de pessoas queridas para atrair os heróis.",
+  "vida": 3,
+  "movimento": 3,
+  "ataque": 2,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 30,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 2,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 15,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 1,
+          "alcance": 1,
+          "aplica": [
+            "confuso"
+          ]
+        }
+      ]
+    },
+    {
+      "iniciativa": 55,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 4
+        },
+        {
+          "tipo": "atacar",
+          "valor": 1,
+          "alcance": 1
+        }
+      ]
+    }
+  ]
+}

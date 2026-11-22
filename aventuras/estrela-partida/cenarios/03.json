@@ -1,0 +1,19 @@
+{
+  "id": "estrela.cenario-03",
+  "numero": "03",
+  "nome": "As Minas Apagadas",
+  "ato": 1,
+  "introducao": "As tochas das Minas de Ferrorrubro estão apagadas há meses. Esqueletos anões ainda guardam os túneis.",
+  "conclusao": "Uma tocha antiga revela marcas de martelo na parede: alguém lutou aqui até o fim.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-04"
+  ],
+  "rascunho": true
+}

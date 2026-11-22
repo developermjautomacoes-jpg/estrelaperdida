@@ -1,0 +1,68 @@
+[
+  {
+    "id": "base.primeira-lanterna",
+    "nome": "Primeira Lanterna",
+    "descricao": "Vencer o primeiro cenário.",
+    "tipo": "pessoal",
+    "estatistica": "cenarios_vencidos",
+    "quantidade": 1,
+    "recompensa": {
+      "xp": 5
+    }
+  },
+  {
+    "id": "base.por-um-fio",
+    "nome": "Por um Fio",
+    "descricao": "Terminar um cenário com 1 de vida.",
+    "tipo": "pessoal",
+    "estatistica": "vitorias_com_1_vida",
+    "quantidade": 1,
+    "recompensa": {
+      "xp": 10
+    }
+  },
+  {
+    "id": "base.ninguem-fica-para-tras",
+    "nome": "Ninguém Fica para Trás",
+    "descricao": "Curar aliados 10 vezes.",
+    "tipo": "pessoal",
+    "estatistica": "aliados_curados",
+    "quantidade": 10,
+    "recompensa": {
+      "titulo": "Guardião"
+    }
+  },
+  {
+    "id": "base.cacador-de-mimicos",
+    "nome": "Caçador de Mímicos",
+    "descricao": "Derrotar 5 mímicos de baú.",
+    "tipo": "pessoal",
+    "estatistica": "derrotou:base.mimico-de-bau",
+    "quantidade": 5,
+    "recompensa": {
+      "cosmetico": "moldura-dourada"
+    }
+  },
+  {
+    "id": "base.cem-sombras",
+    "nome": "Cem Sombras",
+    "descricao": "Derrotar 100 inimigos.",
+    "tipo": "pessoal",
+    "estatistica": "inimigos_derrotados",
+    "quantidade": 100,
+    "recompensa": {
+      "titulo": "Caçador da Névoa"
+    }
+  },
+  {
+    "id": "base.mestre-da-classe",
+    "nome": "Mestre da Classe",
+    "descricao": "Chegar ao nível 9 com um herói.",
+    "tipo": "pessoal",
+    "estatistica": "nivel_maximo",
+    "quantidade": 9,
+    "recompensa": {
+      "cosmetico": "visual-alternativo"
+    }
+  }
+]

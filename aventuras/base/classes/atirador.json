@@ -1,0 +1,453 @@
+{
+  "id": "base.atirador",
+  "nome": "Atirador",
+  "papel": "Longa distância",
+  "dificuldade": "facil",
+  "vida": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "tamanhoMao": 9,
+  "segredo": "Os Ventofolha descendem de um dos primeiros Guardiões da Lanterna. O irmão escolhido tem um mapa tatuado nas costas sem saber.",
+  "versoes": [
+    {
+      "id": "base.atirador.lyra",
+      "nome": "Lyra Ventofolha",
+      "genero": "f",
+      "descricao": "Calma e observadora, fala pouco e acerta muito. Pipa voa à frente e revela armadilhas.",
+      "cartas": [
+        {
+          "id": "base.atirador.lyra.flecha-do-vento-norte",
+          "nome": "Flecha do Vento Norte",
+          "nivel": 1,
+          "iniciativa": 20,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 4,
+                "empurrar": 1
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.atirador.lyra.olhos-de-pipa",
+          "nome": "Olhos de Pipa",
+          "nivel": 1,
+          "iniciativa": 12,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "fortalecer",
+                "alcance": 3
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.atirador.lyra.chuva-de-folhas",
+          "nome": "Chuva de Folhas",
+          "nivel": 1,
+          "iniciativa": 55,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 3,
+                "alvos": 3
+              }
+            ],
+            "xp": 2,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        }
+      ],
+      "companheiro": "Pipa, a coruja"
+    },
+    {
+      "id": "base.atirador.taren",
+      "nome": "Taren Ventofolha",
+      "genero": "m",
+      "descricao": "Impulsivo e caçador de armadilhas, nunca perdoou o bosque por ter levado a mãe deles.",
+      "cartas": [
+        {
+          "id": "base.atirador.taren.virote-perfurante",
+          "nome": "Virote Perfurante",
+          "nivel": 1,
+          "iniciativa": 35,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 4,
+                "alcance": 3
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.atirador.taren.armadilha-de-espinhos",
+          "nome": "Armadilha de Espinhos",
+          "nivel": 1,
+          "iniciativa": 42,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 2,
+                "aplica": [
+                  "imobilizado"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.atirador.taren.salto-de-faisca",
+          "nome": "Salto de Faísca",
+          "nivel": 1,
+          "iniciativa": 15,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 1
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 4
+              }
+            ]
+          }
+        }
+      ],
+      "companheiro": "Faísca, o lince"
+    }
+  ],
+  "cartas": [
+    {
+      "id": "base.atirador.flecha-rapida",
+      "nome": "Flecha Rápida",
+      "nivel": 1,
+      "iniciativa": 16,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.tiro-mirado",
+      "nome": "Tiro Mirado",
+      "nivel": 1,
+      "iniciativa": 48,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 5
+          }
+        ],
+        "xp": 1
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.recuar",
+      "nome": "Recuar",
+      "nivel": 1,
+      "iniciativa": 25,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.duas-flechas",
+      "nome": "Duas Flechas",
+      "nivel": 1,
+      "iniciativa": 38,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 3,
+            "alvos": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.flecha-envenenada",
+      "nome": "Flecha Envenenada",
+      "nivel": 1,
+      "iniciativa": 44,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 3,
+            "aplica": [
+              "veneno"
+            ]
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.folhagem",
+      "nome": "Folhagem",
+      "nivel": 1,
+      "iniciativa": 30,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.disparo-duplo",
+      "nome": "Disparo Duplo",
+      "nivel": 2,
+      "iniciativa": 26,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 4,
+            "alvos": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.olho-de-aguia",
+      "nome": "Olho de Águia",
+      "nivel": 3,
+      "iniciativa": 8,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 4,
+            "alcance": 6
+          }
+        ],
+        "xp": 1
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.atirador.tempestade-de-flechas",
+      "nome": "Tempestade de Flechas",
+      "nivel": 4,
+      "iniciativa": 65,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 4,
+            "alvos": 4
+          }
+        ],
+        "xp": 2,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    }
+  ],
+  "talentos": [
+    {
+      "id": "base.atirador.talento-1",
+      "descricao": "Trocar dois -1 por dois +0",
+      "remove": [
+        "-1",
+        "-1"
+      ],
+      "adiciona": [
+        "+0",
+        "+0"
+      ]
+    },
+    {
+      "id": "base.atirador.talento-2",
+      "descricao": "Trocar o -2 por +0",
+      "remove": [
+        "-2"
+      ],
+      "adiciona": [
+        "+0"
+      ]
+    },
+    {
+      "id": "base.atirador.talento-3",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.atirador.talento-4",
+      "descricao": "Adicionar dois +0 que envenenam",
+      "adiciona": [
+        "veneno",
+        "veneno"
+      ]
+    },
+    {
+      "id": "base.atirador.talento-5",
+      "descricao": "Trocar um -1 por +2",
+      "remove": [
+        "-1"
+      ],
+      "adiciona": [
+        "+2"
+      ]
+    }
+  ]
+}

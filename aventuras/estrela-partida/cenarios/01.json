@@ -1,0 +1,56 @@
+{
+  "id": "estrela.cenario-01",
+  "numero": "01",
+  "nome": "O Bosque que Parou de Falar",
+  "ato": 1,
+  "introducao": "As árvores do Bosque dos Sussurros estão mudas. Entre os troncos, cogumelos pulsam como corações e lobos cinzentos rondam sem fazer barulho.",
+  "conclusao": "A árvore anciã sussurra uma única palavra antes de silenciar de novo: \"Estrela\". Nas costas do Atirador, uma marca começa a brilhar.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-02"
+  ],
+  "mapa": [
+    "#############",
+    "#SS....#....#",
+    "#SS..#......#",
+    "#.......##..#",
+    "#..#........#",
+    "#.....#.....#",
+    "#############"
+  ],
+  "inimigos": [
+    {
+      "tipo": "base.cogumelo-raivoso",
+      "linha": 2,
+      "coluna": 9
+    },
+    {
+      "tipo": "base.cogumelo-raivoso",
+      "linha": 4,
+      "coluna": 10,
+      "minHerois": 3
+    },
+    {
+      "tipo": "base.lobo-cinzento",
+      "linha": 1,
+      "coluna": 10
+    },
+    {
+      "tipo": "base.lobo-cinzento",
+      "linha": 5,
+      "coluna": 9,
+      "minHerois": 4
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 3,
+      "coluna": 6
+    }
+  ]
+}

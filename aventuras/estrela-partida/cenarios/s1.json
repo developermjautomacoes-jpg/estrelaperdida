@@ -1,0 +1,17 @@
+{
+  "id": "estrela.cenario-s1",
+  "numero": "s1",
+  "nome": "O Tesouro do Polvo",
+  "ato": 0,
+  "introducao": "Cenário secreto. Como desbloquear: Ganhar 3 eventos da Taverna do Polvo Risonho.",
+  "conclusao": "Um segredo da lenda foi revelado.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 10,
+    "ouro": 15
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

@@ -1,0 +1,43 @@
+{
+  "id": "base.cavaleiro-da-nevoa",
+  "nome": "Cavaleiro da Névoa",
+  "descricao": "Soldado de Morvhen, forte e lento.",
+  "vida": 9,
+  "movimento": 2,
+  "ataque": 4,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 65,
+      "acoes": [
+        {
+          "tipo": "escudo",
+          "valor": 1
+        },
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 80,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 1
+        },
+        {
+          "tipo": "atacar",
+          "valor": 5,
+          "alcance": 1
+        }
+      ]
+    }
+  ]
+}

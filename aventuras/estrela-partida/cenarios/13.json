@@ -1,0 +1,33 @@
+{
+  "id": "estrela.cenario-13",
+  "numero": "13",
+  "nome": "Irmãos de Pedra",
+  "ato": 3,
+  "introducao": "Ferroth, o Colosso Oco, bloqueia o caminho. Ele também tem uma rachadura no peito.",
+  "conclusao": "Ferroth para. Convencido ou derrotado, o caminho está livre.",
+  "objetivo": {
+    "tipo": "derrotar_chefe"
+  },
+  "recompensas": {
+    "xp": 15,
+    "ouro": 20
+  },
+  "desbloqueia": [
+    "estrela.cenario-14"
+  ],
+  "rascunho": true,
+  "escolha": {
+    "id": "ferroth",
+    "pergunta": "O golem do grupo tenta convencer Ferroth?",
+    "opcoes": [
+      {
+        "id": "convencer",
+        "texto": "Tentar convencê-lo (luta mais difícil, aliado no final)"
+      },
+      {
+        "id": "lutar",
+        "texto": "Lutar até o fim"
+      }
+    ]
+  }
+}

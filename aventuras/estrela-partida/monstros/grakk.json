@@ -1,0 +1,68 @@
+{
+  "id": "estrela.grakk",
+  "nome": "Grakk, o Rei Sapo",
+  "descricao": "Sapo gigante do Pântano de Lodonegro que devora as memórias dos viajantes; coroou-se rei com um fragmento de cristal.",
+  "vida": 22,
+  "movimento": 3,
+  "ataque": 4,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 50,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 3,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 30,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 2,
+          "alcance": 3,
+          "aplica": [
+            "imobilizado"
+          ]
+        }
+      ]
+    },
+    {
+      "iniciativa": 70,
+      "acoes": [
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 40,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 4
+        },
+        {
+          "tipo": "atacar",
+          "valor": 2,
+          "alcance": 1
+        }
+      ]
+    }
+  ],
+  "chefe": true,
+  "vidaPorHeroi": 4
+}

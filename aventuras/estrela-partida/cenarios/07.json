@@ -1,0 +1,33 @@
+{
+  "id": "estrela.cenario-07",
+  "numero": "07",
+  "nome": "A Dívida da Raposa",
+  "ato": 2,
+  "introducao": "A Matilha das Sombras encontra o Ladino. No meio da praça, o irmão refém está amarrado.",
+  "conclusao": "A Matilha recua — por enquanto. O que foi decidido aqui não será esquecido.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-08"
+  ],
+  "rascunho": true,
+  "escolha": {
+    "id": "raposa",
+    "pergunta": "O que o grupo faz?",
+    "opcoes": [
+      {
+        "id": "proteger",
+        "texto": "Proteger o Ladino e enfrentar a Matilha"
+      },
+      {
+        "id": "acordo",
+        "texto": "Fazer acordo com a Matilha e ficar com o ouro"
+      }
+    ]
+  }
+}

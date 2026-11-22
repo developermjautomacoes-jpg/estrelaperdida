@@ -1,0 +1,19 @@
+{
+  "id": "estrela.cenario-12",
+  "numero": "12",
+  "nome": "A Memória de Pedra",
+  "ato": 3,
+  "introducao": "O golem do grupo reconhece a caverna. O outro golem ainda dorme ali.",
+  "conclusao": "Os golens lembram quem os criou — e para quê.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-13"
+  ],
+  "rascunho": true
+}

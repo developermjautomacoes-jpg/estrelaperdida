@@ -1,0 +1,453 @@
+{
+  "id": "base.curandeiro",
+  "nome": "Curandeiro",
+  "papel": "Cura e suporte",
+  "dificuldade": "facil",
+  "vida": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "tamanhoMao": 9,
+  "segredo": "A avó deles, Vovó Selene, foi a última Guardiã da Lanterna. Selou Morvhen há 50 anos e pagou com os próprios olhos.",
+  "versoes": [
+    {
+      "id": "base.curandeiro.aurora",
+      "nome": "Aurora Lumen",
+      "genero": "f",
+      "descricao": "Otimista e corajosa, nunca deixa ninguém para trás. Carrega a lanterna de fogo azul do Farol.",
+      "cartas": [
+        {
+          "id": "base.curandeiro.aurora.luz-acolhedora",
+          "nome": "Luz Acolhedora",
+          "nivel": 1,
+          "iniciativa": 45,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "curar",
+                "valor": 2,
+                "alcance": 2,
+                "todosAliados": true
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.curandeiro.aurora.chama-azul",
+          "nome": "Chama Azul",
+          "nivel": 1,
+          "iniciativa": 30,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 2,
+                "empurrar": 1
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.curandeiro.aurora.lanterna-erguida",
+          "nome": "Lanterna Erguida",
+          "nivel": 1,
+          "iniciativa": 15,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "fortalecer",
+                "alcance": 2,
+                "todosAliados": true
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "base.curandeiro.elias",
+      "nome": "Elias Lumen",
+      "genero": "m",
+      "descricao": "O coveiro do farol, que enterra os que a névoa leva. Triste, gentil e de poucas palavras. Cura com sinos e velas.",
+      "cartas": [
+        {
+          "id": "base.curandeiro.elias.sino-do-repouso",
+          "nome": "Sino do Repouso",
+          "nivel": 1,
+          "iniciativa": 35,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "curar",
+                "valor": 4,
+                "alcance": 2
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.curandeiro.elias.vela-de-vigilia",
+          "nome": "Vela de Vigília",
+          "nivel": 1,
+          "iniciativa": 20,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 1,
+                "aliadosAdjacentes": true
+              },
+              {
+                "tipo": "curar",
+                "valor": 1,
+                "alcance": 0
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.curandeiro.elias.ultima-prece",
+          "nome": "Última Prece",
+          "nivel": 1,
+          "iniciativa": 60,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "curar",
+                "valor": 3,
+                "alcance": 3,
+                "todosAliados": true,
+                "removeCondicoes": true
+              }
+            ],
+            "xp": 2,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "cartas": [
+    {
+      "id": "base.curandeiro.bencao",
+      "nome": "Bênção",
+      "nivel": 1,
+      "iniciativa": 40,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 3,
+            "alcance": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.bastao",
+      "nome": "Bastão",
+      "nivel": 1,
+      "iniciativa": 50,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.luz-breve",
+      "nome": "Luz Breve",
+      "nivel": 1,
+      "iniciativa": 25,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 2,
+            "alcance": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.protecao",
+      "nome": "Proteção",
+      "nivel": 1,
+      "iniciativa": 18,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.fogo-fatuo",
+      "nome": "Fogo Fátuo",
+      "nivel": 1,
+      "iniciativa": 55,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.passo-leve",
+      "nome": "Passo Leve",
+      "nivel": 1,
+      "iniciativa": 12,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 1,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.refugio",
+      "nome": "Refúgio",
+      "nivel": 2,
+      "iniciativa": 28,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 3,
+            "alcance": 1,
+            "todosAliados": true
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.luz-guardia",
+      "nome": "Luz Guardiã",
+      "nivel": 3,
+      "iniciativa": 33,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 5,
+            "alcance": 2
+          }
+        ],
+        "xp": 1
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.curandeiro.milagre",
+      "nome": "Milagre",
+      "nivel": 4,
+      "iniciativa": 70,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 5,
+            "alcance": 3,
+            "todosAliados": true,
+            "removeCondicoes": true
+          }
+        ],
+        "xp": 2,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    }
+  ],
+  "talentos": [
+    {
+      "id": "base.curandeiro.talento-1",
+      "descricao": "Trocar dois -1 por dois +0",
+      "remove": [
+        "-1",
+        "-1"
+      ],
+      "adiciona": [
+        "+0",
+        "+0"
+      ]
+    },
+    {
+      "id": "base.curandeiro.talento-2",
+      "descricao": "Trocar o -2 por +0",
+      "remove": [
+        "-2"
+      ],
+      "adiciona": [
+        "+0"
+      ]
+    },
+    {
+      "id": "base.curandeiro.talento-3",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.curandeiro.talento-4",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.curandeiro.talento-5",
+      "descricao": "Trocar um -1 por +2",
+      "remove": [
+        "-1"
+      ],
+      "adiciona": [
+        "+2"
+      ]
+    }
+  ]
+}

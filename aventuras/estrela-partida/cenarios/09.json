@@ -1,0 +1,19 @@
+{
+  "id": "estrela.cenario-09",
+  "numero": "09",
+  "nome": "O Diário da Vovó",
+  "ato": 2,
+  "introducao": "O diário de Vovó Selene foi roubado da Biblioteca do Farol.",
+  "conclusao": "A última página revela: Morvhen era um Guardião da Lanterna.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-10"
+  ],
+  "rascunho": true
+}

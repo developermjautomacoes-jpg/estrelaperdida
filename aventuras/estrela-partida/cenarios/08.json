@@ -1,0 +1,19 @@
+{
+  "id": "estrela.cenario-08",
+  "numero": "08",
+  "nome": "Dentro da Névoa",
+  "ato": 2,
+  "introducao": "Vocês entram na névoa por vontade própria. Lá dentro, Mestre Gundar, agora um Oco, guarda as minas.",
+  "conclusao": "Se Gundar foi libertado, ele chora pela primeira vez em meses. Se não, o martelo dele fica para trás.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10
+  },
+  "desbloqueia": [
+    "estrela.cenario-09"
+  ],
+  "rascunho": true
+}

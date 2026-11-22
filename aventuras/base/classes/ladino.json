@@ -1,0 +1,453 @@
+{
+  "id": "base.ladino",
+  "nome": "Ladino",
+  "papel": "Ataques furtivos",
+  "dificuldade": "media",
+  "vida": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "tamanhoMao": 9,
+  "segredo": "Os irmãos roubaram um fragmento de cristal sem saber o que era e o venderam à Dama das Mil Máscaras.",
+  "versoes": [
+    {
+      "id": "base.ladino.zefiro",
+      "nome": "Zéfiro Rabo-de-Fumaça",
+      "genero": "m",
+      "descricao": "Esperto, vaidoso e engraçado, sempre tem um plano arriscado. Some e reaparece onde ninguém espera.",
+      "cartas": [
+        {
+          "id": "base.ladino.zefiro.passo-de-fumaca",
+          "nome": "Passo de Fumaça",
+          "nivel": 1,
+          "iniciativa": 8,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 4
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.ladino.zefiro.duas-caudas",
+          "nome": "Duas Caudas",
+          "nivel": 1,
+          "iniciativa": 24,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 1,
+                "aplica": [
+                  "confuso"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.ladino.zefiro.golpe-pelas-costas",
+          "nome": "Golpe Pelas Costas",
+          "nivel": 1,
+          "iniciativa": 32,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 4,
+                "alcance": 1
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "base.ladino.salvia",
+      "nome": "Sálvia Rabo-de-Fumaça",
+      "genero": "f",
+      "descricao": "Fria e calculista, nunca esquece uma dívida. Usa venenos e facas de arremesso.",
+      "cartas": [
+        {
+          "id": "base.ladino.salvia.lamina-envenenada",
+          "nome": "Lâmina Envenenada",
+          "nivel": 1,
+          "iniciativa": 27,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 1,
+                "aplica": [
+                  "veneno"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.ladino.salvia.sumir-na-multidao",
+          "nome": "Sumir na Multidão",
+          "nivel": 1,
+          "iniciativa": 12,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 2
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 4
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.ladino.salvia.divida-cobrada",
+          "nome": "Dívida Cobrada",
+          "nivel": 1,
+          "iniciativa": 46,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 5,
+                "alcance": 1
+              }
+            ],
+            "xp": 2,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "cartas": [
+    {
+      "id": "base.ladino.facada-rapida",
+      "nome": "Facada Rápida",
+      "nivel": 1,
+      "iniciativa": 10,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.faca-arremessada",
+      "nome": "Faca Arremessada",
+      "nivel": 1,
+      "iniciativa": 30,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.esquiva",
+      "nome": "Esquiva",
+      "nivel": 1,
+      "iniciativa": 15,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.rasteira",
+      "nome": "Rasteira",
+      "nivel": 1,
+      "iniciativa": 40,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1,
+            "aplica": [
+              "imobilizado"
+            ]
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.bolso-leve",
+      "nome": "Bolso Leve",
+      "nivel": 1,
+      "iniciativa": 35,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.truque-sujo",
+      "nome": "Truque Sujo",
+      "nivel": 1,
+      "iniciativa": 20,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 1,
+            "alcance": 1,
+            "aplica": [
+              "confuso"
+            ]
+          }
+        ],
+        "xp": 1
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.danca-das-laminas",
+      "nome": "Dança das Lâminas",
+      "nivel": 2,
+      "iniciativa": 22,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1,
+            "alvos": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.sombra-viva",
+      "nome": "Sombra Viva",
+      "nivel": 3,
+      "iniciativa": 6,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 5
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.ladino.golpe-final",
+      "nome": "Golpe Final",
+      "nivel": 4,
+      "iniciativa": 50,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 7,
+            "alcance": 1
+          }
+        ],
+        "xp": 2,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    }
+  ],
+  "talentos": [
+    {
+      "id": "base.ladino.talento-1",
+      "descricao": "Trocar dois -1 por dois +0",
+      "remove": [
+        "-1",
+        "-1"
+      ],
+      "adiciona": [
+        "+0",
+        "+0"
+      ]
+    },
+    {
+      "id": "base.ladino.talento-2",
+      "descricao": "Trocar o -2 por +0",
+      "remove": [
+        "-2"
+      ],
+      "adiciona": [
+        "+0"
+      ]
+    },
+    {
+      "id": "base.ladino.talento-3",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.ladino.talento-4",
+      "descricao": "Adicionar dois +0 que envenenam",
+      "adiciona": [
+        "veneno",
+        "veneno"
+      ]
+    },
+    {
+      "id": "base.ladino.talento-5",
+      "descricao": "Trocar um -1 por +2",
+      "remove": [
+        "-1"
+      ],
+      "adiciona": [
+        "+2"
+      ]
+    }
+  ]
+}

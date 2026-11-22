@@ -1,0 +1,43 @@
+{
+  "id": "base.esqueleto-anao",
+  "nome": "Esqueleto Anão",
+  "descricao": "Guardião antigo das minas, com escudo.",
+  "vida": 6,
+  "movimento": 2,
+  "ataque": 3,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 45,
+      "acoes": [
+        {
+          "tipo": "escudo",
+          "valor": 1
+        },
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 3,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 65,
+      "acoes": [
+        {
+          "tipo": "escudo",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 1
+        }
+      ]
+    }
+  ]
+}

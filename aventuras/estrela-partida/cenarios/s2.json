@@ -1,0 +1,17 @@
+{
+  "id": "estrela.cenario-s2",
+  "numero": "s2",
+  "nome": "A Cozinha dos Mímicos",
+  "ato": 0,
+  "introducao": "Cenário secreto. Como desbloquear: Abrir 5 baús que eram mímicos.",
+  "conclusao": "Um segredo da lenda foi revelado.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 10,
+    "ouro": 15
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

@@ -1,0 +1,58 @@
+{
+  "id": "estrela.dama-das-mil-mascaras",
+  "nome": "A Dama das Mil Máscaras",
+  "descricao": "Chefe da Matilha das Sombras; ilusionista que compra segredos.",
+  "vida": 28,
+  "movimento": 3,
+  "ataque": 4,
+  "alcance": 2,
+  "habilidades": [
+    {
+      "iniciativa": 20,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 3,
+          "alcance": 2,
+          "aplica": [
+            "confuso"
+          ]
+        }
+      ]
+    },
+    {
+      "iniciativa": 45,
+      "acoes": [
+        {
+          "tipo": "escudo",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 2
+        }
+      ]
+    },
+    {
+      "iniciativa": 60,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 5,
+          "alcance": 2
+        }
+      ]
+    }
+  ],
+  "chefe": true,
+  "vidaPorHeroi": 7
+}

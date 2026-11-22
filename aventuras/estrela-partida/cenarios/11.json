@@ -1,0 +1,22 @@
+{
+  "id": "estrela.cenario-11",
+  "numero": "11",
+  "nome": "O Deserto de Vidro",
+  "ato": 3,
+  "introducao": "A areia cristalizada reflete miragens. Só uma leva ao templo.",
+  "conclusao": "No templo, o Cristal da Sabedoria pulsa no altar.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 8,
+    "ouro": 10,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [
+    "estrela.cenario-12"
+  ],
+  "rascunho": true
+}

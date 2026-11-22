@@ -1,0 +1,38 @@
+{
+  "id": "base.cogumelo-raivoso",
+  "nome": "Cogumelo Raivoso",
+  "descricao": "Solta esporos que deixam os heróis tontos.",
+  "vida": 5,
+  "movimento": 1,
+  "ataque": 1,
+  "alcance": 2,
+  "habilidades": [
+    {
+      "iniciativa": 60,
+      "acoes": [
+        {
+          "tipo": "atacar",
+          "valor": 1,
+          "alcance": 2,
+          "aplica": [
+            "confuso"
+          ]
+        }
+      ]
+    },
+    {
+      "iniciativa": 45,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 1
+        },
+        {
+          "tipo": "atacar",
+          "valor": 2,
+          "alcance": 2
+        }
+      ]
+    }
+  ]
+}

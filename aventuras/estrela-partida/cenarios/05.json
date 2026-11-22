@@ -1,0 +1,72 @@
+{
+  "id": "estrela.cenario-05",
+  "numero": "05",
+  "nome": "A Coroa do Rei Sapo",
+  "ato": 1,
+  "introducao": "No coração do Pântano de Lodonegro, Grakk se senta num trono de lodo, com um fragmento de cristal cravado na coroa. Ele lambe os lábios: \"Memórias frescas...\"",
+  "conclusao": "A coroa cai na lama e o terceiro Cristal Astral rola até os pés de vocês. Na água escura, dois caminhos se refletem: o mar e o céu.",
+  "objetivo": {
+    "tipo": "derrotar_chefe"
+  },
+  "recompensas": {
+    "xp": 15,
+    "ouro": 20,
+    "estatisticas": {
+      "cristais_recuperados": 1
+    }
+  },
+  "desbloqueia": [],
+  "mapa": [
+    "#############",
+    "#....#.#....#",
+    "#SS.........#",
+    "#SS...###...#",
+    "#...........#",
+    "#....#.#....#",
+    "#############"
+  ],
+  "inimigos": [
+    {
+      "tipo": "estrela.grakk",
+      "linha": 3,
+      "coluna": 10
+    },
+    {
+      "tipo": "base.oco",
+      "linha": 2,
+      "coluna": 9
+    },
+    {
+      "tipo": "base.oco",
+      "linha": 4,
+      "coluna": 9,
+      "minHerois": 3
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 1,
+      "coluna": 10,
+      "minHerois": 4
+    }
+  ],
+  "escolha": {
+    "id": "rota",
+    "pergunta": "Qual caminho o grupo segue?",
+    "opcoes": [
+      {
+        "id": "mar",
+        "texto": "A Rota do Mar, rumo à cidade afundada de Maréalta",
+        "desbloqueia": [
+          "estrela.cenario-06-mar"
+        ]
+      },
+      {
+        "id": "ceu",
+        "texto": "A Rota do Céu, rumo às Ilhas Flutuantes de Aeria",
+        "desbloqueia": [
+          "estrela.cenario-06-ceu"
+        ]
+      }
+    ]
+  }
+}

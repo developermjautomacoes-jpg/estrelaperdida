@@ -1,0 +1,51 @@
+{
+  "id": "estrela.cenario-00",
+  "numero": "00",
+  "nome": "A Névoa no Porto",
+  "ato": 0,
+  "introducao": "O último farol do cais se apaga. Vozes conhecidas chamam do meio da névoa — mas quem chama não é quem parece. Mestra Orvalha grita para vocês: \"Segurem o cais até o fogo azul voltar!\"",
+  "conclusao": "O fogo azul reacende e as Sombras se desfazem com um grito sem voz. Na manhã seguinte, a Guilda da Lanterna abre as portas para vocês.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 6,
+    "ouro": 5
+  },
+  "desbloqueia": [
+    "estrela.cenario-01"
+  ],
+  "mapa": [
+    "###########",
+    "#SS.......#",
+    "#SS..##...#",
+    "#.........#",
+    "#...#.....#",
+    "#.........#",
+    "###########"
+  ],
+  "inimigos": [
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 1,
+      "coluna": 8
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 3,
+      "coluna": 8
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 5,
+      "coluna": 6,
+      "minHerois": 3
+    },
+    {
+      "tipo": "base.oco",
+      "linha": 4,
+      "coluna": 8,
+      "minHerois": 4
+    }
+  ]
+}

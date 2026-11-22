@@ -1,0 +1,53 @@
+{
+  "id": "base.lobo-cinzento",
+  "nome": "Lobo Cinzento",
+  "descricao": "Rápido, ataca quem estiver sozinho.",
+  "vida": 4,
+  "movimento": 4,
+  "ataque": 2,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 20,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 4
+        },
+        {
+          "tipo": "atacar",
+          "valor": 2,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 12,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 5
+        },
+        {
+          "tipo": "atacar",
+          "valor": 1,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 35,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 3,
+          "alcance": 1
+        }
+      ]
+    }
+  ]
+}

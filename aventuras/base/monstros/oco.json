@@ -1,0 +1,53 @@
+{
+  "id": "base.oco",
+  "nome": "Oco",
+  "descricao": "Aldeão tomado pela névoa. Derrotá-lo o liberta e devolve um pouco de memória.",
+  "vida": 6,
+  "movimento": 2,
+  "ataque": 2,
+  "alcance": 1,
+  "habilidades": [
+    {
+      "iniciativa": 50,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 2
+        },
+        {
+          "tipo": "atacar",
+          "valor": 3,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 70,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 1
+        },
+        {
+          "tipo": "atacar",
+          "valor": 4,
+          "alcance": 1
+        }
+      ]
+    },
+    {
+      "iniciativa": 40,
+      "acoes": [
+        {
+          "tipo": "mover",
+          "valor": 3
+        },
+        {
+          "tipo": "atacar",
+          "valor": 2,
+          "alcance": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "estrela.cenario-s3",
+  "numero": "s3",
+  "nome": "O Ninho do Companheiro",
+  "ato": 0,
+  "introducao": "Cenário secreto. Como desbloquear: Completar a missão pessoal do Atirador.",
+  "conclusao": "Um segredo da lenda foi revelado.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 10,
+    "ouro": 15
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

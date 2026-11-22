@@ -1,0 +1,497 @@
+{
+  "id": "base.defensor",
+  "nome": "Defensor",
+  "papel": "Linha de frente",
+  "dificuldade": "facil",
+  "vida": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "tamanhoMao": 10,
+  "segredo": "O pai dos gêmeos, Mestre Gundar, virou um Oco e guarda as minas para Morvhen.",
+  "versoes": [
+    {
+      "id": "base.defensor.brasa",
+      "nome": "Brasa Martelacesa",
+      "genero": "f",
+      "descricao": "Teimosa, barulhenta e leal até o fim. Carrega o martelo do pai, que se acende quando ela protege alguém.",
+      "cartas": [
+        {
+          "id": "base.defensor.brasa.martelo-em-chamas",
+          "nome": "Martelo em Chamas",
+          "nivel": 1,
+          "iniciativa": 30,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 1,
+                "aplica": [
+                  "queimando"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.defensor.brasa.muralha-de-ferro",
+          "nome": "Muralha de Ferro",
+          "nivel": 1,
+          "iniciativa": 15,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 2,
+                "aliadosAdjacentes": true
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.defensor.brasa.grito-da-forja",
+          "nome": "Grito da Forja",
+          "nivel": 1,
+          "iniciativa": 20,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "provocar",
+                "alcance": 3
+              },
+              {
+                "tipo": "escudo",
+                "valor": 1
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 1
+              }
+            ]
+          }
+        }
+      ],
+      "idade": 16
+    },
+    {
+      "id": "base.defensor.rocco",
+      "nome": "Rocco Martelacesa",
+      "genero": "m",
+      "descricao": "Calado e cauteloso, carrega a culpa de ter sido o primeiro a fugir. Luta atrás de um escudo-torre.",
+      "cartas": [
+        {
+          "id": "base.defensor.rocco.escudo-do-portao",
+          "nome": "Escudo do Portão",
+          "nivel": 1,
+          "iniciativa": 12,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 3
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.defensor.rocco.contragolpe",
+          "nome": "Contragolpe",
+          "nivel": 1,
+          "iniciativa": 40,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 4,
+                "alcance": 1
+              }
+            ],
+            "xp": 2,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 1
+              },
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.defensor.rocco.fincar-os-pes",
+          "nome": "Fincar os Pés",
+          "nivel": 1,
+          "iniciativa": 25,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 2
+              },
+              {
+                "tipo": "provocar",
+                "alcance": 2
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 1,
+                "empurrar": 1
+              }
+            ]
+          }
+        }
+      ],
+      "idade": 16
+    }
+  ],
+  "cartas": [
+    {
+      "id": "base.defensor.golpe-pesado",
+      "nome": "Golpe Pesado",
+      "nivel": 1,
+      "iniciativa": 35,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.investida",
+      "nome": "Investida",
+      "nivel": 1,
+      "iniciativa": 45,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          },
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.ombro-a-ombro",
+      "nome": "Ombro a Ombro",
+      "nivel": 1,
+      "iniciativa": 28,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 1,
+            "aliadosAdjacentes": true
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.pancada-atordoante",
+      "nome": "Pancada Atordoante",
+      "nivel": 1,
+      "iniciativa": 50,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1,
+            "aplica": [
+              "atordoado"
+            ]
+          }
+        ],
+        "xp": 1,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.passo-firme",
+      "nome": "Passo Firme",
+      "nivel": 1,
+      "iniciativa": 22,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.bigorna",
+      "nome": "Bigorna",
+      "nivel": 1,
+      "iniciativa": 60,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 4,
+            "alcance": 1
+          }
+        ],
+        "xp": 1
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.resistir",
+      "nome": "Resistir",
+      "nivel": 1,
+      "iniciativa": 18,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 2,
+            "alcance": 0
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.forja-viva",
+      "nome": "Forja Viva",
+      "nivel": 2,
+      "iniciativa": 33,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1,
+            "alvos": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.rugido-de-ferro",
+      "nome": "Rugido de Ferro",
+      "nivel": 3,
+      "iniciativa": 10,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "provocar",
+            "alcance": 3
+          },
+          {
+            "tipo": "escudo",
+            "valor": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.defensor.martelo-partido",
+      "nome": "Martelo Partido",
+      "nivel": 4,
+      "iniciativa": 70,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 6,
+            "alcance": 1
+          }
+        ],
+        "xp": 2,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1,
+            "empurrar": 2
+          }
+        ]
+      }
+    }
+  ],
+  "talentos": [
+    {
+      "id": "base.defensor.talento-1",
+      "descricao": "Trocar dois -1 por dois +0",
+      "remove": [
+        "-1",
+        "-1"
+      ],
+      "adiciona": [
+        "+0",
+        "+0"
+      ]
+    },
+    {
+      "id": "base.defensor.talento-2",
+      "descricao": "Trocar o -2 por +0",
+      "remove": [
+        "-2"
+      ],
+      "adiciona": [
+        "+0"
+      ]
+    },
+    {
+      "id": "base.defensor.talento-3",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.defensor.talento-4",
+      "descricao": "Adicionar dois +0 que queimam",
+      "adiciona": [
+        "queimando",
+        "queimando"
+      ]
+    },
+    {
+      "id": "base.defensor.talento-5",
+      "descricao": "Trocar um -1 por +2",
+      "remove": [
+        "-1"
+      ],
+      "adiciona": [
+        "+2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "base.biblioteca",
+  "prefixo": "base",
+  "nome": "Biblioteca base",
+  "versao": 1,
+  "biblioteca": true,
+  "descricao": "Classes, heróis, monstros comuns e conquistas pessoais compartilhados por todas as aventuras.",
+  "cenarios": []
+}

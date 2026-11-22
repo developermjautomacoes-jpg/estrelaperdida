@@ -1,0 +1,17 @@
+{
+  "id": "estrela.cenario-s5",
+  "numero": "s5",
+  "nome": "O Último Portão Anão",
+  "ato": 0,
+  "introducao": "Cenário secreto. Como desbloquear: Libertar Gundar com todos os heróis de pé.",
+  "conclusao": "Um segredo da lenda foi revelado.",
+  "objetivo": {
+    "tipo": "derrotar_todos"
+  },
+  "recompensas": {
+    "xp": 10,
+    "ouro": 15
+  },
+  "desbloqueia": [],
+  "rascunho": true
+}

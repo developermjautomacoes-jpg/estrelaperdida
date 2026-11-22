@@ -1,0 +1,479 @@
+{
+  "id": "base.protetor",
+  "nome": "Protetor",
+  "papel": "Controle do campo",
+  "dificuldade": "media",
+  "vida": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "tamanhoMao": 10,
+  "segredo": "A rachadura no peito é uma lasca da Estrela. Se for retirada, o golem deixa de existir. Ferroth é o terceiro irmão.",
+  "versoes": [
+    {
+      "id": "base.protetor.toco",
+      "nome": "Toco",
+      "genero": "m",
+      "descricao": "Golem de pedra e musgo, gentil e ingênuo. Adora borboletas e tem medo de água.",
+      "cartas": [
+        {
+          "id": "base.protetor.toco.raizes-firmes",
+          "nome": "Raízes Firmes",
+          "nivel": 1,
+          "iniciativa": 40,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 2,
+                "alcance": 2,
+                "aplica": [
+                  "imobilizado"
+                ]
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.protetor.toco.pedra-amiga",
+          "nome": "Pedra Amiga",
+          "nivel": 1,
+          "iniciativa": 30,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 2,
+                "aliadosAdjacentes": true
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.protetor.toco.abraco-de-granito",
+          "nome": "Abraço de Granito",
+          "nivel": 1,
+          "iniciativa": 10,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 3
+              },
+              {
+                "tipo": "provocar",
+                "alcance": 2
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "base.protetor.lasca",
+      "nome": "Lasca",
+      "genero": "f",
+      "descricao": "Golem de pedra e cristal, irônica e desconfiada. Sonha com pedaços de um passado que não entende.",
+      "cartas": [
+        {
+          "id": "base.protetor.lasca.espelho-de-quartzo",
+          "nome": "Espelho de Quartzo",
+          "nivel": 1,
+          "iniciativa": 14,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 3
+              }
+            ],
+            "xp": 1
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.protetor.lasca.estilhaco",
+          "nome": "Estilhaço",
+          "nivel": 1,
+          "iniciativa": 36,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "atacar",
+                "valor": 3,
+                "alcance": 2,
+                "alvos": 2
+              }
+            ],
+            "xp": 1,
+            "perdida": true
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 2
+              }
+            ]
+          }
+        },
+        {
+          "id": "base.protetor.lasca.pele-de-diamante",
+          "nome": "Pele de Diamante",
+          "nivel": 1,
+          "iniciativa": 22,
+          "cima": {
+            "acoes": [
+              {
+                "tipo": "escudo",
+                "valor": 2
+              },
+              {
+                "tipo": "curar",
+                "valor": 2,
+                "alcance": 0
+              }
+            ]
+          },
+          "baixo": {
+            "acoes": [
+              {
+                "tipo": "mover",
+                "valor": 3
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "cartas": [
+    {
+      "id": "base.protetor.punho-de-pedra",
+      "nome": "Punho de Pedra",
+      "nivel": 1,
+      "iniciativa": 45,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.avalanche",
+      "nome": "Avalanche",
+      "nivel": 1,
+      "iniciativa": 60,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1,
+            "alvos": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.musgo",
+      "nome": "Musgo",
+      "nivel": 1,
+      "iniciativa": 50,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 3,
+            "alcance": 0
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.barreira",
+      "nome": "Barreira",
+      "nivel": 1,
+      "iniciativa": 20,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 2
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.tremor",
+      "nome": "Tremor",
+      "nivel": 1,
+      "iniciativa": 55,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 2,
+            "alcance": 1,
+            "aplica": [
+              "atordoado"
+            ]
+          }
+        ],
+        "xp": 1,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.passo-pesado",
+      "nome": "Passo Pesado",
+      "nivel": 1,
+      "iniciativa": 35,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.guardiao",
+      "nome": "Guardião",
+      "nivel": 1,
+      "iniciativa": 25,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "provocar",
+            "alcance": 3
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.montanha",
+      "nome": "Montanha",
+      "nivel": 2,
+      "iniciativa": 18,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "escudo",
+            "valor": 3,
+            "aliadosAdjacentes": true
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.coracao-vivo",
+      "nome": "Coração Vivo",
+      "nivel": 3,
+      "iniciativa": 28,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "curar",
+            "valor": 4,
+            "alcance": 1
+          }
+        ]
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 3,
+            "alcance": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "base.protetor.terremoto",
+      "nome": "Terremoto",
+      "nivel": 4,
+      "iniciativa": 75,
+      "cima": {
+        "acoes": [
+          {
+            "tipo": "atacar",
+            "valor": 4,
+            "alcance": 1,
+            "alvos": 4
+          }
+        ],
+        "xp": 2,
+        "perdida": true
+      },
+      "baixo": {
+        "acoes": [
+          {
+            "tipo": "mover",
+            "valor": 3
+          }
+        ]
+      }
+    }
+  ],
+  "talentos": [
+    {
+      "id": "base.protetor.talento-1",
+      "descricao": "Trocar dois -1 por dois +0",
+      "remove": [
+        "-1",
+        "-1"
+      ],
+      "adiciona": [
+        "+0",
+        "+0"
+      ]
+    },
+    {
+      "id": "base.protetor.talento-2",
+      "descricao": "Trocar o -2 por +0",
+      "remove": [
+        "-2"
+      ],
+      "adiciona": [
+        "+0"
+      ]
+    },
+    {
+      "id": "base.protetor.talento-3",
+      "descricao": "Adicionar dois +1",
+      "adiciona": [
+        "+1",
+        "+1"
+      ]
+    },
+    {
+      "id": "base.protetor.talento-4",
+      "descricao": "Adicionar dois +2",
+      "adiciona": [
+        "+2",
+        "+2"
+      ]
+    },
+    {
+      "id": "base.protetor.talento-5",
+      "descricao": "Trocar um -1 por +2",
+      "remove": [
+        "-1"
+      ],
+      "adiciona": [
+        "+2"
+      ]
+    }
+  ]
+}
