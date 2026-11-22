@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
-import { chave, deChave, paraPixel, vizinhos } from '../engine/hex';
+import { caminho, chave, deChave, paraPixel, vizinhos } from '../engine/hex';
+import type { Hex } from '../engine/types';
 import type { EstadoBatalha, EventoVisual } from '../engine/batalha';
 import { estiloDoAtaque, tocar, type EstiloAtaque } from './som';
 import type { Ambiente, Visual } from '../engine/types';
@@ -18,11 +19,46 @@ interface Props {
 }
 
 const T = 30; // tamanho do hexágono
+/** Achatamento vertical: o tabuleiro parece deitado na mesa, visto de lado. */
+const ACH = 0.72;
+const px = (h: Hex) => {
+  const p = paraPixel(h, T);
+  return { x: p.x, y: p.y * ACH };
+};
+
+// caminhada: 8 quadros por ciclo = 2 passos; 4 quadros por casa
+const MS_POR_CASA = 420;
+const QUADRO_PARADO = 2; // pernas juntas
+const ALTURA_MINI = 72;
+const ALTURA_MINI_CHEFE = 92;
+
+interface Pose {
+  x: number;
+  y: number;
+  quadro: number;
+  virado: boolean; // olhando para a esquerda
+}
+
+/** Tamanho natural das faixas de caminhada (para recortar 1 quadro). */
+const tamanhos: Record<string, { w: number; h: number }> = {};
+function useTamanho(url?: string) {
+  const [, setV] = useState(0);
+  useEffect(() => {
+    if (!url || tamanhos[url]) return;
+    const img = new Image();
+    img.onload = () => {
+      tamanhos[url] = { w: img.naturalWidth, h: img.naturalHeight };
+      setV((v) => v + 1);
+    };
+    img.src = url;
+  }, [url]);
+  return url ? tamanhos[url] : undefined;
+}
 
 const pontos = (cx: number, cy: number) =>
   Array.from({ length: 6 }, (_, i) => {
     const ang = (Math.PI / 180) * (60 * i - 30);
-    return `${cx + T * Math.cos(ang)},${cy + T * Math.sin(ang)}`;
+    return `${cx + T * Math.cos(ang)},${cy + T * Math.sin(ang) * ACH}`;
   }).join(' ');
 
 interface Efeito {
@@ -47,11 +83,11 @@ interface Flutuante {
 
 export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, unidadesValidas, vezDe, onHex, onUnidade }: Props) {
   const todos = [...estado.andaveis, ...estado.paredes].map(deChave);
-  const px = todos.map((h) => paraPixel(h, T));
-  const minX = Math.min(...px.map((p) => p.x)) - T - 4;
-  const minY = Math.min(...px.map((p) => p.y)) - T - 4;
-  const maxX = Math.max(...px.map((p) => p.x)) + T + 4;
-  const maxY = Math.max(...px.map((p) => p.y)) + T + 4;
+  const pxs = todos.map((h) => px(h));
+  const minX = Math.min(...pxs.map((p) => p.x)) - T - 4;
+  const minY = Math.min(...pxs.map((p) => p.y)) - T - 60;
+  const maxX = Math.max(...pxs.map((p) => p.x)) + T + 4;
+  const maxY = Math.max(...pxs.map((p) => p.y)) + T + 4;
   const validos = new Set(hexesValidos);
   const paredes = new Set(estado.paredes);
   const existentes = new Set([...estado.andaveis, ...estado.paredes]);
@@ -68,8 +104,8 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
     for (const u of estado.unidades) {
       const antes = anterior.current[u.id];
       if (antes !== undefined && antes !== u.vida) {
-        const { x, y } = paraPixel(u.pos, T);
-        novos.push({ chave: Math.random(), x, y: y - 42, texto: u.vida < antes ? `-${antes - u.vida}` : `+${u.vida - antes}`, tipo: u.vida < antes ? 'dano' : 'cura' });
+        const { x, y } = px(u.pos);
+        novos.push({ chave: Math.random(), x, y: y - 70, texto: u.vida < antes ? `-${antes - u.vida}` : `+${u.vida - antes}`, tipo: u.vida < antes ? 'dano' : 'cura' });
         if (u.vida < antes) feridos.push(u.id);
       }
       anterior.current[u.id] = u.vida;
@@ -96,7 +132,7 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
     ultimoEvento.current = novos[novos.length - 1].id;
     const pos = (id: string) => {
       const u = estado.unidades.find((x) => x.id === id);
-      return u ? paraPixel(u.pos, T) : { x: 0, y: 0 };
+      return u ? px(u.pos) : { x: 0, y: 0 };
     };
     const timers = timersEfeitos.current;
     novos.forEach((ev, i) => {
@@ -112,10 +148,9 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
             timers.push(setTimeout(() => tocar(ev.erro ? 'erro' : ev.dano > 0 ? 'impacto' : 'escudo'), 300));
           } else if (ev.tipo === 'cura') tocar('cura');
           else if (ev.tipo === 'escudo') tocar('escudo');
-          else if (ev.tipo === 'mover') tocar('passo');
           else if (ev.tipo === 'derrota') tocar('derrota');
           // mira no meio do corpo do token, não no chão
-          const meio = ev.tipo === 'mover' ? 0 : 12;
+          const meio = ev.tipo === 'mover' ? 0 : 30;
           const ef: Efeito = { chave: Math.random(), ev, x1: origem.x, y1: origem.y - meio, x2: destino.x, y2: destino.y - meio, estilo };
           setEfeitos((l) => [...l, ef]);
           timers.push(setTimeout(() => setEfeitos((l) => l.filter((x) => x !== ef)), 900));
@@ -126,6 +161,60 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
     if (timers.length > 200) timersEfeitos.current = timers.slice(-100);
   }, [estado]);
 
+  // caminhada: cada unidade anda casa por casa até a nova posição
+  const ultimaPos = useRef<Record<string, Hex>>({});
+  const viradoRef = useRef<Record<string, boolean>>({});
+  const [poses, setPoses] = useState<Record<string, Pose>>({});
+  const andando = useRef<Record<string, number>>({});
+  useEffect(() => {
+    const andaveis = new Set(estado.andaveis);
+    for (const u of estado.unidades) {
+      const antes = ultimaPos.current[u.id];
+      ultimaPos.current[u.id] = u.pos;
+      if (viradoRef.current[u.id] === undefined) viradoRef.current[u.id] = u.lado === 'monstro';
+      if (!antes || (antes.q === u.pos.q && antes.r === u.pos.r) || u.fora) continue;
+      const ocupados = new Set(estado.unidades.filter((o) => o.id !== u.id && !o.fora).map((o) => chave(o.pos)));
+      const rota = [antes, ...(caminho(antes, u.pos, { andaveis, bloqueados: ocupados }) ?? [u.pos])];
+      const pontosRota = rota.map(px);
+      if (andando.current[u.id]) cancelAnimationFrame(andando.current[u.id]);
+      const inicio = performance.now();
+      let passoTocado = -1;
+      const total = (pontosRota.length - 1) * MS_POR_CASA;
+      const quadro = (t: number) => {
+        const dec = Math.min(t - inicio, total);
+        const i = Math.min(pontosRota.length - 2, Math.floor(dec / MS_POR_CASA));
+        const f = (dec - i * MS_POR_CASA) / MS_POR_CASA;
+        const a = pontosRota[i];
+        const b = pontosRota[i + 1];
+        if (i !== passoTocado && dec < total) {
+          passoTocado = i;
+          tocar('passo');
+        }
+        if (Math.abs(b.x - a.x) > 1) viradoRef.current[u.id] = b.x < a.x;
+        const fim = dec >= total;
+        setPoses((p) => ({
+          ...p,
+          [u.id]: {
+            x: a.x + (b.x - a.x) * f,
+            y: a.y + (b.y - a.y) * f,
+            quadro: fim ? QUADRO_PARADO : Math.floor((dec / MS_POR_CASA) * 4) % 8,
+            virado: viradoRef.current[u.id],
+          },
+        }));
+        if (!fim) andando.current[u.id] = requestAnimationFrame(quadro);
+        else {
+          delete andando.current[u.id];
+          setPoses((p) => {
+            const { [u.id]: _, ...resto } = p;
+            return resto;
+          });
+        }
+      };
+      andando.current[u.id] = requestAnimationFrame(quadro);
+    }
+  }, [estado]);
+  useEffect(() => () => Object.values(andando.current).forEach(cancelAnimationFrame), []);
+
   const fundo = artePintada(`ambiente.${ambiente}`);
 
   return (
@@ -133,7 +222,7 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
       <svg className="tabuleiro" viewBox={`${minX} ${minY} ${maxX - minX} ${maxY - minY}`} role="img" aria-label="Tabuleiro">
         {todos.map((h) => {
           const k = chave(h);
-          const { x, y } = paraPixel(h, T);
+          const { x, y } = px(h);
           const parede = paredes.has(k);
           const valido = validos.has(k);
           return (
@@ -149,54 +238,28 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
         })}
         {estado.unidades
           .filter((u) => !u.fora)
-          .map((u) => ({ u, ...paraPixel(u.pos, T) }))
-          // quem está mais embaixo na tela fica na frente (tokens em pé se sobrepõem)
+          .map((u) => {
+            const pose = poses[u.id];
+            const p = pose ?? { ...px(u.pos), quadro: QUADRO_PARADO, virado: viradoRef.current[u.id] ?? u.lado === 'monstro' };
+            return { u, ...p };
+          })
+          // quem está mais embaixo na tela fica na frente
           .sort((a, b) => a.y - b.y || a.x - b.x)
-          .map(({ u, x, y }) => {
-            const alvo = unidadesValidas.includes(u.id);
-            const w = u.chefe ? 46 : 36; // largura do token
-            const h = u.chefe ? 60 : 47; // altura do token
-            const hw = w / 2;
-            const base = 13; // onde o token encosta na base (abaixo do centro do hexágono)
-            const topo = base - h;
-            const silhueta = `M ${-hw} ${base} V ${topo + hw} A ${hw} ${hw} 0 0 1 ${hw} ${topo + hw} V ${base} Z`;
-            const alt = h + 6;
-            const larg = alt / 1.2;
-            return (
-              <g
-                key={u.id}
-                className={`unidade unidade--${u.lado} ${alvo ? 'unidade--alvo' : ''} ${vezDe === u.id ? 'unidade--vez' : ''} ${u.chefe ? 'unidade--chefe' : ''} ${atingidos.includes(u.id) ? 'unidade--atingida' : ''}`}
-                style={{ transform: `translate(${x}px, ${y}px)` }}
-                onClick={alvo && onUnidade ? () => onUnidade(u.id) : undefined}
-              >
-                <title>
-                  {`${u.nome} — ${u.vida}/${u.vidaMax} de vida${u.escudo ? `, escudo ${u.escudo}` : ''}${u.condicoes.length ? ` · ${u.condicoes.map((c) => NOMES_CONDICAO[c]).join(', ')}` : ''}`}
-                </title>
-                <defs>
-                  <clipPath id={`recorte-${u.id}`}>
-                    <path d={silhueta} />
-                  </clipPath>
-                </defs>
-                <ellipse cx={0} cy={base + 3} rx={hw + 5} ry={7} className="unidade__sombra" />
-                <ellipse cx={0} cy={base + 1} rx={hw + 3} ry={5.5} className="unidade__base" />
-                <g className="unidade__figura">
-                  <path d={silhueta} className="unidade__aro" />
-                  <g clipPath={`url(#recorte-${u.id})`}>
-                    <Retrato id={u.arteId} visual={visuais[u.arteId]} x={-larg / 2} y={topo - 2} largura={larg} altura={alt} />
-                  </g>
-                  <path d={silhueta} className="unidade__borda" />
-                </g>
-                <rect x={-16} y={base + 8} width={32} height={4} rx={2} className="unidade__vida-fundo" />
-                <rect x={-16} y={base + 8} width={(32 * u.vida) / u.vidaMax} height={4} rx={2} className="unidade__vida" />
-                {u.escudo > 0 && (
-                  <text x={hw - 2} y={topo + 6} className="unidade__escudo">
-                    ◆{u.escudo}
-                  </text>
-                )}
-                {u.condicoes.length > 0 && <circle cx={-hw + 3} cy={topo + 8} r={4} className="unidade__condicao" />}
-              </g>
-            );
-          })}
+          .map(({ u, x, y, quadro, virado }) => (
+            <Unidade
+              key={u.id}
+              u={u}
+              x={x}
+              y={y}
+              quadro={quadro}
+              virado={virado}
+              visual={visuais[u.arteId]}
+              alvo={unidadesValidas.includes(u.id)}
+              vez={vezDe === u.id}
+              atingida={atingidos.includes(u.id)}
+              onClick={unidadesValidas.includes(u.id) && onUnidade ? () => onUnidade(u.id) : undefined}
+            />
+          ))}
         {efeitos.map((f) => (
           <DesenhoEfeito key={f.chave} efeito={f} />
         ))}
@@ -207,6 +270,85 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
         ))}
       </svg>
     </div>
+  );
+}
+
+interface PropsUnidade {
+  u: EstadoBatalha['unidades'][number];
+  x: number;
+  y: number;
+  quadro: number;
+  virado: boolean;
+  visual?: Visual;
+  alvo: boolean;
+  vez: boolean;
+  atingida: boolean;
+  onClick?: () => void;
+}
+
+/** Miniatura em pé: caminhada em quadros quando existe; senão, o retrato num token. */
+function Unidade({ u, x, y, quadro, virado, visual, alvo, vez, atingida, onClick }: PropsUnidade) {
+  const urlAndar = artePintada(`andar.${u.arteId}`);
+  const tam = useTamanho(urlAndar);
+  const hw = u.chefe ? 22 : 17;
+  const titulo = `${u.nome} — ${u.vida}/${u.vidaMax} de vida${u.escudo ? `, escudo ${u.escudo}` : ''}${u.condicoes.length ? ` · ${u.condicoes.map((c) => NOMES_CONDICAO[c]).join(', ')}` : ''}`;
+  const altura = u.chefe ? ALTURA_MINI_CHEFE : ALTURA_MINI;
+  let figura: ReactNode;
+  let topo: number;
+  if (urlAndar && tam) {
+    const fw = tam.w / 8;
+    const largura = (altura * fw) / tam.h;
+    topo = -altura + 2;
+    figura = (
+      <g transform={virado ? 'scale(-1 1)' : undefined}>
+        <svg x={-largura / 2} y={topo} width={largura} height={altura} viewBox={`${quadro * fw} 0 ${fw} ${tam.h}`} preserveAspectRatio="xMidYMax meet" className="unidade__mini">
+          <image href={urlAndar} width={tam.w} height={tam.h} />
+        </svg>
+      </g>
+    );
+  } else {
+    const w = hw * 2 + 2;
+    const h = u.chefe ? 60 : 47;
+    const base = 2;
+    topo = base - h;
+    const silhueta = `M ${-w / 2} ${base} V ${topo + w / 2} A ${w / 2} ${w / 2} 0 0 1 ${w / 2} ${topo + w / 2} V ${base} Z`;
+    const alt = h + 6;
+    figura = (
+      <>
+        <defs>
+          <clipPath id={`recorte-${u.id}`}>
+            <path d={silhueta} />
+          </clipPath>
+        </defs>
+        <path d={silhueta} className="unidade__aro" />
+        <g clipPath={`url(#recorte-${u.id})`}>
+          <Retrato id={u.arteId} visual={visual} x={-alt / 2.4} y={topo - 2} largura={alt / 1.2} altura={alt} />
+        </g>
+        <path d={silhueta} className="unidade__borda" />
+      </>
+    );
+  }
+  return (
+    <g
+      className={`unidade unidade--${u.lado} ${alvo ? 'unidade--alvo' : ''} ${vez ? 'unidade--vez' : ''} ${u.chefe ? 'unidade--chefe' : ''} ${atingida ? 'unidade--atingida' : ''}`}
+      transform={`translate(${x} ${y})`}
+      onClick={onClick}
+    >
+      <title>{titulo}</title>
+      <ellipse cx={0} cy={3} rx={hw + 6} ry={(hw + 6) * ACH * 0.5} className="unidade__sombra" />
+      <ellipse cx={0} cy={1} rx={hw + 3} ry={(hw + 3) * ACH * 0.45} className="unidade__base" />
+      <g className="unidade__figura">{figura}</g>
+      <rect x={-16} y={10} width={32} height={4} rx={2} className="unidade__vida-fundo" />
+      <rect x={-16} y={10} width={(32 * u.vida) / u.vidaMax} height={4} rx={2} className="unidade__vida" />
+      {u.escudo > 0 && (
+        <text x={hw} y={topo + 8} className="unidade__escudo">
+          ◆{u.escudo}
+        </text>
+      )}
+      {u.condicoes.length > 0 && <circle cx={-hw} cy={topo + 10} r={4} className="unidade__condicao" />}
+      {/* área de clique generosa */}
+      <rect x={-hw - 4} y={topo} width={(hw + 4) * 2} height={-topo + 14} fill="transparent" />
+    </g>
   );
 }
 
@@ -264,7 +406,7 @@ function DesenhoEfeito({ efeito: f }: { efeito: Efeito }) {
       </g>
     );
   return (
-    <g transform={`translate(${f.x2} ${f.y2 + 14})`}>
+    <g transform={`translate(${f.x2} ${f.y2 + 2})`}>
       <ellipse rx="14" ry="4" className="poeira-passo" />
     </g>
   );
