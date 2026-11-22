@@ -25,11 +25,23 @@ def mascara_figura(rgb: np.ndarray) -> np.ndarray:
     # fundo liso (pouca variação na borda) pede tolerância menor, senão come figuras cinza
     var = float(np.sqrt(((borda - fundo) ** 2).sum(-1)).mean())
     tol = min(38.0, max(12.0, var * 4 + 8))
-    parecido = (dist < tol) & (sat < 22)
+    # fundo colorido (verde) não exige baixa saturação; fundo cinza sim
+    sat_fundo = float(fundo.max() - fundo.min())
+    if sat_fundo > 40:
+        tol = max(tol, 60.0)
+        c = rgb.astype(float)
+        canal = int(np.argmax(fundo))  # canal dominante do fundo (ex.: verde)
+        outros = [i for i in range(3) if i != canal]
+        dominante = (c[..., canal] - c[..., outros].max(-1)) > 25  # reflexo da cor do fundo
+        parecido = (dist < tol) | dominante
+    else:
+        parecido = (dist < tol) & (sat < 22)
     rot, _ = ndimage.label(parecido)
     tocando = set(np.unique(np.concatenate([rot[0], rot[-1], rot[:, 0], rot[:, -1]]))) - {0}
     eh_fundo = np.isin(rot, list(tocando))
     fig = ~eh_fundo
+    if sat_fundo > 40:
+        fig &= ~parecido  # reflexos soltos da cor do fundo também saem
     fig = ndimage.binary_opening(fig, iterations=1)
     fig = ndimage.binary_fill_holes(fig)
     # remove sujeirinhas pequenas

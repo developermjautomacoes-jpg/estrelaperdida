@@ -834,4 +834,5 @@ python3 -I tools/miniaturas.py <pasta_com_os_jpg> src/assets/arte
 ```
 
 O script tira o fundo cinza, separa os 8 quadros e alinha os pés.
+Para personagens cinza ou escuros, troque o fundo por `plain flat solid bright green background, no shadows on the background`: o script também recorta fundo verde e remove os reflexos.
 Companheiros (coruja, lince) entram na própria descrição para andarem junto.
