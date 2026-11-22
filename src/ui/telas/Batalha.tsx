@@ -3,6 +3,7 @@ import { deChave } from '../../engine/hex';
 import {
   alvosValidos,
   descansar,
+  desfazerEscolha,
   encerrarTurnoHeroi,
   escolherCartas,
   escolherMetades,
@@ -36,6 +37,8 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
   const [erro, setErro] = useState<string>();
   const [selecao, setSelecao] = useState<Record<string, string[]>>({});
   const [introVista, setIntroVista] = useState(false);
+  /** Estados anteriores dentro do turno do herói, para o botão Voltar. */
+  const [historico, setHistorico] = useState<EstadoBatalha[]>([]);
 
   const fazer = (f: () => EstadoBatalha) => {
     try {
@@ -47,6 +50,26 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
   };
 
   useEffect(() => setSelecao({}), [e.rodada]);
+  useEffect(() => setHistorico([]), [e.rodada, e.turno?.unidadeId]);
+
+  /** Ação do turno do herói que pode ser desfeita com Voltar. */
+  const fazerNoTurno = (f: () => EstadoBatalha) => {
+    try {
+      setErro(undefined);
+      const novo = f();
+      setHistorico((h) => [...h, e]);
+      setE(novo);
+    } catch (err) {
+      setErro((err as Error).message);
+    }
+  };
+  const voltarNoTurno = () => {
+    const anterior = historico[historico.length - 1];
+    if (!anterior) return;
+    setErro(undefined);
+    setHistorico((h) => h.slice(0, -1));
+    setE(anterior);
+  };
 
   const validos = useMemo(() => alvosValidos(e), [e]);
   const passo = passoAtual(e);
@@ -112,8 +135,8 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
             hexesValidos={validos.hexes}
             unidadesValidas={validos.unidades}
             vezDe={e.turno?.unidadeId}
-            onHex={(k) => fazer(() => executarPasso(e, { hex: deChave(k) }))}
-            onUnidade={(id) => fazer(() => executarPasso(e, { unidadeId: id }))}
+            onHex={(k) => fazerNoTurno(() => executarPasso(e, { hex: deChave(k) }))}
+            onUnidade={(id) => fazerNoTurno(() => executarPasso(e, { unidadeId: id }))}
           />
           <div className="status-unidades">
             {e.unidades
@@ -175,7 +198,24 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
                       ))}
                     </div>
                     <div className="acoes">
-                      <button className="botao" onClick={() => confirmar(h.unidadeId)} disabled={sel.length !== 2}>
+                      {pronto ? (
+                        <button
+                          className="botao botao--leve"
+                          onClick={() => {
+                            fazer(() => desfazerEscolha(e, h.unidadeId));
+                            setSelecao((s) => ({ ...s, [h.unidadeId]: [] }));
+                          }}
+                        >
+                          ↶ Voltar e trocar
+                        </button>
+                      ) : (
+                        sel.length > 0 && (
+                          <button className="botao botao--leve" onClick={() => setSelecao((s) => ({ ...s, [h.unidadeId]: sel.slice(0, -1) }))}>
+                            ↶ Voltar
+                          </button>
+                        )
+                      )}
+                      <button className="botao" onClick={() => confirmar(h.unidadeId)} disabled={sel.length !== 2 || !!pronto}>
                         Confirmar cartas
                       </button>
                       <button className="botao botao--leve" onClick={() => fazer(() => descansar(e, h.unidadeId))} disabled={!podeDescansar(e, h.unidadeId)}>
@@ -210,7 +250,7 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
                           cor={visuais[unidade(e, heroiDaVez.unidadeId).arteId]?.destaque}
                           heroi={{ classe: unidade(e, heroiDaVez.unidadeId).defId, versao: unidade(e, heroiDaVez.unidadeId).arteId, visual: visuais[unidade(e, heroiDaVez.unidadeId).arteId] }}
                         />
-                        <button className="botao" onClick={() => fazer(() => escolherMetades(e, c.id))}>
+                        <button className="botao" onClick={() => fazerNoTurno(() => escolherMetades(e, c.id))}>
                           Cima desta
                         </button>
                       </div>
@@ -238,8 +278,13 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
                     </p>
                   )}
                   <div className="acoes">
+                    {historico.length > 0 && (
+                      <button className="botao botao--leve" onClick={voltarNoTurno} title="Desfaz a última escolha deste turno">
+                        ↶ Voltar
+                      </button>
+                    )}
                     {passo && (
-                      <button className="botao botao--leve" onClick={() => fazer(() => pularPasso(e))}>
+                      <button className="botao botao--leve" onClick={() => fazerNoTurno(() => pularPasso(e))}>
                         Pular ação
                       </button>
                     )}

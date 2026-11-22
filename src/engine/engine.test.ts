@@ -7,6 +7,9 @@ import { armazenamentoMemoria, carregar, concluirCenario, criarHeroi, criarJogad
 import {
   alvosValidos,
   criarBatalha,
+  descansar,
+  desfazerEscolha,
+  prontoParaRodada,
   encerrarTurnoHeroi,
   escolherCartas,
   escolherMetades,
@@ -110,6 +113,25 @@ describe('batalha', () => {
     expect(vivas(e, 'monstro')).toHaveLength(2); // 1 herói: só os inimigos sem minHerois
     expect(e.fase).toBe('planejamento');
     expect(vivas(e, 'heroi')[0].arteId).toBe('base.defensor.brasa');
+  });
+
+  it('desfaz a escolha de cartas e o descanso no planejamento', () => {
+    let e = novo();
+    const mao = e.herois[0].mao;
+    e = escolherCartas(e, 'h0', mao[0].id, mao[1].id, mao[0].id);
+    expect(prontoParaRodada(e)).toBe(true);
+    const antes = e;
+    e = desfazerEscolha(e, 'h0');
+    expect(e.herois[0].escolhidas).toHaveLength(0);
+    expect(e.herois[0].lider).toBeUndefined();
+    expect(prontoParaRodada(e)).toBe(false);
+    expect(antes.herois[0].escolhidas).toHaveLength(2); // estado anterior intacto
+    e = escolherCartas(e, 'h0', mao[2].id, mao[3].id, mao[3].id);
+    expect(e.herois[0].lider).toBe(mao[3].id);
+    // descanso também pode ser desfeito
+    e = { ...e, herois: [{ ...e.herois[0], descarte: [mao[4], mao[5]] }] };
+    e = desfazerEscolha(descansar(e, 'h0'), 'h0');
+    expect(e.herois[0].descanso).toBeUndefined();
   });
 
   it('joga uma rodada completa sem erros', () => {

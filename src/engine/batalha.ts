@@ -241,7 +241,18 @@ export const descansar = (e0: EstadoBatalha, unidadeId: string): EstadoBatalha =
   return e;
 };
 
-export const podeDescansar = (e: EstadoBatalha, unidadeId: string) =>
+/** Desfaz a escolha de cartas (ou o descanso) do herói ainda no planejamento. */
+export const desfazerEscolha = (e0: EstadoBatalha, unidadeId: string): EstadoBatalha => {
+  const e = clonar(e0);
+  if (e.fase !== 'planejamento') throw new Error('Fora da fase de planejamento');
+  const h = heroiDaUnidade(e, unidadeId)!;
+  h.escolhidas = [];
+  h.lider = undefined;
+  h.descanso = undefined;
+  return e;
+};
+
+export const podeDescansar =(e: EstadoBatalha, unidadeId: string) =>
   (heroiDaUnidade(e, unidadeId)?.descarte.length ?? 0) >= 2;
 
 export const prontoParaRodada = (e: EstadoBatalha) =>
