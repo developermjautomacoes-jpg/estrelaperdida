@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { criarJogador } from '../../engine/save';
 import type { Jogador } from '../../engine/types';
 
 interface Props {
+  conta?: ReactNode;
   jogadores: Jogador[];
   onCriar: (j: Jogador) => void;
   onAbrir: (id: string) => void;
   onCampanha: () => void;
 }
 
-export function Jogadores({ jogadores, onCriar, onAbrir, onCampanha }: Props) {
+export function Jogadores({ conta, jogadores, onCriar, onAbrir, onCampanha }: Props) {
   const [nome, setNome] = useState('');
   return (
     <div className="tela">
@@ -18,6 +19,8 @@ export function Jogadores({ jogadores, onCriar, onAbrir, onCampanha }: Props) {
         <h1>A Estrela Partida</h1>
         <p className="narracao">Nenhuma luz brilha sozinha.</p>
       </header>
+
+      {conta}
 
       <section className="bloco">
         <h2>Jogadores</h2>

@@ -1,9 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import type { User } from '@supabase/supabase-js';
 import { registro } from './content/registro';
 import { criarBatalha, type EstadoBatalha } from './engine/batalha';
 import { armazenamentoLocal, atualizarJogador, carregar, salvar } from './engine/save';
 import type { Aventura, Cenario, Jogador, Save } from './engine/types';
 import { finalizarBatalha } from './ui/finalizar';
+import { aoMudarSessao, baixarSave, enviarSave, escolherSave, usuarioAtual } from './nuvem/nuvem';
+import { Conta, type StatusNuvem } from './ui/Conta';
 import { Batalha } from './ui/telas/Batalha';
 import { Campanha, type Escalacao } from './ui/telas/Campanha';
 import { Jogadores } from './ui/telas/Jogadores';
@@ -23,7 +26,52 @@ export default function App() {
   const [save, setSave] = useState<Save>(() => carregar(arm));
   const [tela, setTela] = useState<Tela>({ nome: 'jogadores' });
 
-  const gravar = (s: Save) => setSave(salvar(arm, s));
+  const [usuario, setUsuario] = useState<User | null>(null);
+  const [status, setStatus] = useState<StatusNuvem>('desligada');
+  const usuarioRef = useRef<User | null>(null);
+
+  const subir = (s: Save) => {
+    const u = usuarioRef.current;
+    if (!u) return;
+    setStatus('sincronizando');
+    enviarSave(u.id, s)
+      .then(() => setStatus('salvo'))
+      .catch(() => setStatus('erro'));
+  };
+
+  // Ao entrar na conta, junta o save local com o da nuvem (vale o mais recente).
+  const conectar = async (u: User | null) => {
+    usuarioRef.current = u;
+    setUsuario(u);
+    if (!u) return setStatus('desligada');
+    setStatus('sincronizando');
+    try {
+      const remoto = await baixarSave(u.id);
+      setSave((local) => {
+        const r = escolherSave(local, remoto);
+        salvar(arm, r.save);
+        if (r.enviar) subir(r.save);
+        else setStatus('salvo');
+        return r.save;
+      });
+    } catch {
+      setStatus('erro');
+    }
+  };
+
+  useEffect(() => {
+    usuarioAtual().then(conectar);
+    return aoMudarSessao((u) => {
+      if (u?.id !== usuarioRef.current?.id) conectar(u);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const gravar = (s: Save) => {
+    const novo = salvar(arm, s);
+    setSave(novo);
+    subir(novo);
+  };
   const gravarJogador = (j: Jogador) => gravar(atualizarJogador(save, j));
   const aventuras = reg.pacotes.filter((p) => !p.aventura.biblioteca).map((p) => p.aventura);
 
@@ -40,6 +88,7 @@ export default function App() {
     case 'jogadores':
       return (
         <Jogadores
+          conta={<Conta usuario={usuario} status={status} />}
           jogadores={save.jogadores}
           onCriar={gravarJogador}
           onAbrir={(id) => setTela({ nome: 'perfil', jogadorId: id })}
