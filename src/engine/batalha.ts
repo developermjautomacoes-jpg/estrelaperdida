@@ -55,6 +55,26 @@ export interface TurnoHeroi {
 
 export type Fase = 'planejamento' | 'acao' | 'vitoria' | 'derrota';
 
+/** Acontecimento para a interface animar e tocar som (não afeta as regras). */
+export type EventoVisual =
+  | { id: number; tipo: 'ataque'; de: string; para: string; alcance: number; dano: number; erro: boolean }
+  | { id: number; tipo: 'cura'; para: string }
+  | { id: number; tipo: 'escudo'; para: string }
+  | { id: number; tipo: 'mover'; de: string }
+  | { id: number; tipo: 'derrota'; para: string };
+
+type NovoEvento = EventoVisual extends infer T ? (T extends EventoVisual ? Omit<T, 'id'> : never) : never;
+
+const MAX_EVENTOS = 40;
+
+/** Registra um evento visual, mantendo só os mais recentes. */
+const evento = (e: EstadoBatalha, ev: NovoEvento) => {
+  const lista = e.eventos ?? (e.eventos = []);
+  const id = (lista[lista.length - 1]?.id ?? 0) + 1;
+  lista.push({ ...ev, id } as EventoVisual);
+  if (lista.length > MAX_EVENTOS) lista.splice(0, lista.length - MAX_EVENTOS);
+};
+
 export interface EstadoBatalha {
   cenarioId: string;
   objetivo: Cenario['objetivo'];
@@ -72,6 +92,8 @@ export interface EstadoBatalha {
   rng: number;
   log: string[];
   estatisticas: Record<string, Record<string, number>>; // por jogador
+  /** Eventos recentes para animação e som. */
+  eventos?: EventoVisual[];
 }
 
 export interface ParticipanteBatalha {
@@ -430,6 +452,7 @@ export const executarPasso = (e0: EstadoBatalha, alvo: { hex?: Hex; unidadeId?: 
   if (a.tipo === 'mover') {
     if (!alvo.hex || !validos.hexes.includes(chave(alvo.hex))) throw new Error('Destino inválido');
     u.pos = alvo.hex;
+    evento(e, { tipo: 'mover', de: u.id });
     proximoPasso(e);
   } else if (a.tipo === 'atacar') {
     if (!alvo.unidadeId || !validos.unidades.includes(alvo.unidadeId)) throw new Error('Alvo inválido');
@@ -488,7 +511,10 @@ const curar = (e: EstadoBatalha, u: Unidade, valor: number, removeCondicoes = fa
   u.vida = Math.min(u.vidaMax, u.vida + valor);
   if (removeCondicoes) u.condicoes = u.condicoes.filter((c) => c === 'fortalecido');
   else u.condicoes = u.condicoes.filter((c) => c !== 'veneno');
-  if (u.vida > antes) e.log.push(`${u.nome} recupera ${u.vida - antes} de vida.`);
+  if (u.vida > antes) {
+    e.log.push(`${u.nome} recupera ${u.vida - antes} de vida.`);
+    evento(e, { tipo: 'cura', para: u.id });
+  }
 };
 
 const sofrerDano = (e: EstadoBatalha, u: Unidade, dano: number, origem: string) => {
@@ -498,6 +524,7 @@ const sofrerDano = (e: EstadoBatalha, u: Unidade, dano: number, origem: string) 
     u.vida = 0;
     u.fora = true;
     e.log.push(u.lado === 'heroi' ? `${u.nome} desmaiou!` : `${u.nome} foi derrotado.`);
+    evento(e, { tipo: 'derrota', para: u.id });
   }
 };
 
@@ -509,6 +536,7 @@ const resolverAcaoSemAlvo = (e: EstadoBatalha, u: Unidade, a: Acao) => {
         .filter((x) => x.id !== u.id && distancia(x.pos, u.pos) === 1)
         .forEach((x) => (x.escudo += a.valor));
     e.log.push(`${u.nome} ganha escudo ${a.valor}.`);
+    evento(e, { tipo: 'escudo', para: u.id });
   } else if (a.tipo === 'provocar') {
     u.provocando = true;
     e.log.push(`${u.nome} provoca os inimigos!`);
@@ -536,6 +564,7 @@ const atacar = (e: EstadoBatalha, atacante: Unidade, alvo: Unidade, a: Extract<A
   const r = aplicarModificador(base, mod);
   const dano = Math.max(0, r.dano - alvo.escudo);
   e.log.push(`${atacante.nome} ataca ${alvo.nome} (${base} ${mod}) → ${dano} de dano.`);
+  evento(e, { tipo: 'ataque', de: atacante.id, para: alvo.id, alcance: a.alcance, dano, erro: mod === 'erro' });
   if (dano > 0) sofrerDano(e, alvo, dano, 'ataque');
   if (alvo.fora) {
     if (atacante.lado === 'heroi') {
@@ -602,7 +631,10 @@ const turnoMonstro = (e: EstadoBatalha, m: Unidade, def: Monstro) => {
           melhor = h;
         }
       }
-      if (!iguais(melhor, m.pos)) e.log.push(`${m.nome} avança.`);
+      if (!iguais(melhor, m.pos)) {
+        e.log.push(`${m.nome} avança.`);
+        evento(e, { tipo: 'mover', de: m.id });
+      }
       m.pos = melhor;
     } else if (a.tipo === 'atacar') {
       if (distancia(m.pos, foco.pos) <= a.alcance && temLinhaDeVisao(m.pos, foco.pos, paredes)) {

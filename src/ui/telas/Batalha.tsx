@@ -18,6 +18,7 @@ import {
   type EstadoBatalha,
 } from '../../engine/batalha';
 import type { Cenario, Monstro, Visual } from '../../engine/types';
+import { alternarSom, somMudo, tocar } from '../som';
 import { Retrato } from '../arte/Retrato';
 import { Carta } from '../Carta';
 import { Tabuleiro } from '../Tabuleiro';
@@ -39,6 +40,7 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
   const [introVista, setIntroVista] = useState(false);
   /** Estados anteriores dentro do turno do herói, para o botão Voltar. */
   const [historico, setHistorico] = useState<EstadoBatalha[]>([]);
+  const [mudo, setMudo] = useState(somMudo());
 
   const fazer = (f: () => EstadoBatalha) => {
     try {
@@ -50,6 +52,10 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
   };
 
   useEffect(() => setSelecao({}), [e.rodada]);
+  useEffect(() => {
+    if (e.fase === 'vitoria') tocar('vitoria');
+    if (e.fase === 'derrota') tocar('fim');
+  }, [e.fase]);
   useEffect(() => setHistorico([]), [e.rodada, e.turno?.unidadeId]);
 
   /** Ação do turno do herói que pode ser desfeita com Voltar. */
@@ -87,12 +93,14 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
       </div>
     );
 
-  const alternar = (unidadeId: string, cartaId: string) =>
+  const alternar = (unidadeId: string, cartaId: string) => {
+    tocar('carta');
     setSelecao((s) => {
       const atual = s[unidadeId] ?? [];
       const novo = atual.includes(cartaId) ? atual.filter((c) => c !== cartaId) : [...atual, cartaId].slice(-2);
       return { ...s, [unidadeId]: novo };
     });
+  };
 
   const confirmar = (unidadeId: string) => {
     const [a, b] = selecao[unidadeId] ?? [];
@@ -112,6 +120,14 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
         <div>
           <strong>{cenario.nome}</strong> · Rodada {e.rodada} · {textoObjetivo(cenario)}
         </div>
+        <button
+          className="botao botao--leve botao-som"
+          onClick={() => setMudo(alternarSom())}
+          title={mudo ? 'Ligar o som' : 'Desligar o som'}
+          aria-label={mudo ? 'Ligar o som' : 'Desligar o som'}
+        >
+          {mudo ? '🔇' : '🔊'}
+        </button>
       </header>
 
       <main className="batalha__corpo">

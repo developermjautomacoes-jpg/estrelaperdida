@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { chave, deChave, paraPixel, vizinhos } from '../engine/hex';
-import type { EstadoBatalha } from '../engine/batalha';
+import type { EstadoBatalha, EventoVisual } from '../engine/batalha';
+import { estiloDoAtaque, tocar, type EstiloAtaque } from './som';
 import type { Ambiente, Visual } from '../engine/types';
 import { artePintada, Retrato } from './arte/Retrato';
 import { NOMES_CONDICAO } from './texto';
@@ -23,6 +24,18 @@ const pontos = (cx: number, cy: number) =>
     const ang = (Math.PI / 180) * (60 * i - 30);
     return `${cx + T * Math.cos(ang)},${cy + T * Math.sin(ang)}`;
   }).join(' ');
+
+interface Efeito {
+  chave: number;
+  ev: EventoVisual;
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  estilo?: EstiloAtaque;
+}
+
+const INTERVALO_EFEITOS = 420; // ms entre eventos seguidos (ex.: turno dos monstros)
 
 interface Flutuante {
   chave: number;
@@ -70,6 +83,45 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
       }, 1000);
       return () => clearTimeout(t);
     }
+  }, [estado]);
+
+  // efeitos de ação: projéteis, golpes, cura, escudo, com som
+  const ultimoEvento = useRef<number>(estado.eventos?.[estado.eventos.length - 1]?.id ?? 0);
+  const [efeitos, setEfeitos] = useState<Efeito[]>([]);
+  const timersEfeitos = useRef<ReturnType<typeof setTimeout>[]>([]);
+  useEffect(() => () => timersEfeitos.current.forEach(clearTimeout), []);
+  useEffect(() => {
+    const novos = (estado.eventos ?? []).filter((ev) => ev.id > ultimoEvento.current);
+    if (!novos.length) return;
+    ultimoEvento.current = novos[novos.length - 1].id;
+    const pos = (id: string) => {
+      const u = estado.unidades.find((x) => x.id === id);
+      return u ? paraPixel(u.pos, T) : { x: 0, y: 0 };
+    };
+    const timers = timersEfeitos.current;
+    novos.forEach((ev, i) => {
+      timers.push(
+        setTimeout(() => {
+          const origem = pos(ev.tipo === 'ataque' || ev.tipo === 'mover' ? ev.de : ev.para);
+          const destino = pos(ev.tipo === 'ataque' ? ev.para : ev.tipo === 'mover' ? ev.de : ev.para);
+          let estilo: EstiloAtaque | undefined;
+          if (ev.tipo === 'ataque') {
+            const a = estado.unidades.find((x) => x.id === ev.de);
+            estilo = estiloDoAtaque(a?.defId, a?.lado ?? 'monstro', ev.alcance);
+            tocar(estilo);
+            timers.push(setTimeout(() => tocar(ev.erro ? 'erro' : ev.dano > 0 ? 'impacto' : 'escudo'), 300));
+          } else if (ev.tipo === 'cura') tocar('cura');
+          else if (ev.tipo === 'escudo') tocar('escudo');
+          else if (ev.tipo === 'mover') tocar('passo');
+          else if (ev.tipo === 'derrota') tocar('derrota');
+          const ef: Efeito = { chave: Math.random(), ev, x1: origem.x, y1: origem.y, x2: destino.x, y2: destino.y, estilo };
+          setEfeitos((l) => [...l, ef]);
+          timers.push(setTimeout(() => setEfeitos((l) => l.filter((x) => x !== ef)), 900));
+        }, i * INTERVALO_EFEITOS),
+      );
+    });
+    // descarta referências de timers já disparados
+    if (timers.length > 200) timersEfeitos.current = timers.slice(-100);
   }, [estado]);
 
   const fundo = artePintada(`ambiente.${ambiente}`);
@@ -130,6 +182,9 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
               </g>
             );
           })}
+        {efeitos.map((f) => (
+          <DesenhoEfeito key={f.chave} efeito={f} />
+        ))}
         {flutuantes.map((f) => (
           <text key={f.chave} x={f.x} y={f.y} textAnchor="middle" className={`flutuante flutuante--${f.tipo}`}>
             {f.texto}
@@ -139,6 +194,102 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
     </div>
   );
 }
+
+/** Desenho animado de um efeito (a animação está no CSS). */
+function DesenhoEfeito({ efeito: f }: { efeito: Efeito }) {
+  const ev = f.ev;
+  if (ev.tipo === 'ataque') {
+    const dx = f.x2 - f.x1;
+    const dy = f.y2 - f.y1;
+    const ang = (Math.atan2(dy, dx) * 180) / Math.PI;
+    const corpo = ev.alcance > 1 || f.estilo === 'flecha' || f.estilo === 'magia' || f.estilo === 'chama' || f.estilo === 'sombra' || f.estilo === 'faca';
+    if (corpo && Math.hypot(dx, dy) > T * 1.2) {
+      return (
+        <g transform={`translate(${f.x1} ${f.y1})`}>
+          <g className={`projetil projetil--${f.estilo}`} style={{ '--dx': `${dx}px`, '--dy': `${dy}px` } as CSSProperties}>
+            <g transform={`rotate(${ang})`}>{projetil(f.estilo)}</g>
+          </g>
+        </g>
+      );
+    }
+    // corpo a corpo: cortes / impacto sobre o alvo
+    return (
+      <g transform={`translate(${f.x2} ${f.y2}) rotate(${ang})`} className={`golpe golpe--${f.estilo}`}>
+        {f.estilo === 'pedra' ? (
+          <>
+            <circle r="14" className="golpe__onda" />
+            <circle r="8" className="golpe__onda golpe__onda--2" />
+          </>
+        ) : (
+          [-9, 0, 9].map((o) => <path key={o} d={`M -16 ${o - 10} Q 0 ${o} 16 ${o + 10}`} className="golpe__corte" />)
+        )}
+      </g>
+    );
+  }
+  if (ev.tipo === 'cura')
+    return (
+      <g transform={`translate(${f.x2} ${f.y2})`} className="brilho-cura">
+        {[-12, -4, 5, 12].map((x, i) => (
+          <text key={i} x={x} y={8} style={{ animationDelay: `${i * 90}ms` }}>
+            ✦
+          </text>
+        ))}
+      </g>
+    );
+  if (ev.tipo === 'escudo')
+    return (
+      <g transform={`translate(${f.x2} ${f.y2})`}>
+        <circle r="22" className="anel-escudo" />
+      </g>
+    );
+  if (ev.tipo === 'derrota')
+    return (
+      <g transform={`translate(${f.x2} ${f.y2})`}>
+        <circle r="18" className="fumaca-derrota" />
+      </g>
+    );
+  return (
+    <g transform={`translate(${f.x2} ${f.y2 + 14})`}>
+      <ellipse rx="14" ry="4" className="poeira-passo" />
+    </g>
+  );
+}
+
+const projetil = (estilo?: EstiloAtaque) => {
+  switch (estilo) {
+    case 'flecha':
+      return (
+        <>
+          <line x1="-14" y1="0" x2="8" y2="0" stroke="#d9c7a0" strokeWidth="2" />
+          <path d="M 8 -4 L 15 0 L 8 4 Z" fill="#cfd6dc" />
+          <path d="M -14 0 L -18 -4 M -14 0 L -18 4" stroke="#7fa7c9" strokeWidth="2" />
+        </>
+      );
+    case 'faca':
+      return <path d="M -6 -2 L 8 0 L -6 2 Z" fill="#dfe6ea" className="giro" />;
+    case 'chama':
+      return (
+        <>
+          <circle r="7" fill="#8fd3ff" opacity="0.9" />
+          <circle r="11" fill="#3a8dde" opacity="0.35" />
+        </>
+      );
+    case 'sombra':
+      return (
+        <>
+          <circle r="7" fill="#5b2b7a" />
+          <circle r="11" fill="#2a1038" opacity="0.5" />
+        </>
+      );
+    default:
+      return (
+        <>
+          <circle r="6" fill="#e9f3ff" />
+          <circle r="11" fill="#7a9cff" opacity="0.45" />
+        </>
+      );
+  }
+};
 
 /** Obstáculos desenhados conforme a região do cenário. */
 function decoracao(amb: Ambiente, x: number, y: number, v: number): ReactNode {

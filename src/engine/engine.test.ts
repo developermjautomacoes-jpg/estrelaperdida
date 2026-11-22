@@ -134,6 +134,28 @@ describe('batalha', () => {
     expect(e.herois[0].descanso).toBeUndefined();
   });
 
+  it('registra eventos visuais de movimento e ataque com ids crescentes', () => {
+    let e = novo();
+    const mao = e.herois[0].mao;
+    e = escolherCartas(e, 'h0', mao[0].id, mao[1].id, mao[0].id);
+    e = iniciarRodada(e, r.monstros);
+    let guarda = 0;
+    while (e.fase === 'acao' && guarda++ < 20) {
+      if (!e.turno) break;
+      if (!e.turno.metadesEscolhidas) e = escolherMetades(e, e.herois[0].escolhidas[0].id);
+      const v = alvosValidos(e);
+      if (!passoAtual(e)) e = encerrarTurnoHeroi(e, r.monstros);
+      else if (v.unidades.length) e = executarPasso(e, { unidadeId: v.unidades[0] });
+      else if (v.hexes.length) e = executarPasso(e, { hex: { q: Number(v.hexes[0].split(',')[0]), r: Number(v.hexes[0].split(',')[1]) } });
+      else e = pularPasso(e);
+    }
+    const ev = e.eventos ?? [];
+    expect(ev.length).toBeGreaterThan(0);
+    expect(ev.some((x) => x.tipo === 'mover' || x.tipo === 'ataque')).toBe(true);
+    ev.slice(1).forEach((x, i) => expect(x.id).toBeGreaterThan(ev[i].id));
+    expect(ev.length).toBeLessThanOrEqual(40);
+  });
+
   it('joga uma rodada completa sem erros', () => {
     let e = novo();
     const mao = e.herois[0].mao;

@@ -1043,3 +1043,28 @@ select {
   height: auto;
   display: block;
 }
+
+/* ---------- efeitos de ação ---------- */
+.projetil { animation: voo 0.38s cubic-bezier(.3,.1,.6,1) forwards; filter: drop-shadow(0 0 4px rgba(140,190,255,.8)); pointer-events: none; }
+.projetil--sombra { filter: drop-shadow(0 0 5px rgba(150,60,200,.9)); }
+.projetil--chama { filter: drop-shadow(0 0 6px rgba(80,170,255,1)); }
+@keyframes voo { from { transform: translate(0, 0); opacity: 1; } 90% { opacity: 1; } to { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+.giro { animation: giro .15s linear infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes giro { to { transform: rotate(360deg); } }
+.golpe { pointer-events: none; }
+.golpe__corte { fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 40; stroke-dashoffset: 40; animation: corte .35s ease-out forwards; filter: drop-shadow(0 0 3px rgba(255,255,255,.9)); }
+.golpe--garra .golpe__corte { stroke: #c86bff; filter: drop-shadow(0 0 3px rgba(160,60,220,.9)); }
+.golpe--golpe .golpe__corte { stroke: #ffd18a; }
+@keyframes corte { 60% { stroke-dashoffset: 0; opacity: 1; } to { stroke-dashoffset: 0; opacity: 0; } }
+.golpe__onda { fill: none; stroke: #c9a46a; stroke-width: 4; transform-box: fill-box; transform-origin: center; animation: onda .5s ease-out forwards; }
+.golpe__onda--2 { stroke: #8fc6ff; animation-delay: .08s; }
+@keyframes onda { from { transform: scale(.3); opacity: 1; } to { transform: scale(2); opacity: 0; } }
+.brilho-cura text { fill: #9ff0c8; font-size: 12px; text-anchor: middle; animation: subir .8s ease-out forwards; filter: drop-shadow(0 0 3px rgba(120,255,190,.9)); pointer-events: none; }
+@keyframes subir { from { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } to { transform: translateY(-26px); opacity: 0; } }
+.anel-escudo { fill: none; stroke: #9cd2ff; stroke-width: 3; transform-box: fill-box; transform-origin: center; animation: escudo .7s ease-out forwards; pointer-events: none; }
+@keyframes escudo { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.4); opacity: 0; } }
+.fumaca-derrota { fill: rgba(180,180,200,.6); transform-box: fill-box; transform-origin: center; animation: fumaca .8s ease-out forwards; pointer-events: none; }
+@keyframes fumaca { from { transform: scale(.5); opacity: .8; } to { transform: scale(2.2); opacity: 0; } }
+.poeira-passo { fill: rgba(200,190,160,.45); transform-box: fill-box; transform-origin: center; animation: fumaca .5s ease-out forwards; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .projetil, .golpe__corte, .golpe__onda, .brilho-cura text, .anel-escudo, .fumaca-derrota, .poeira-passo { animation-duration: .01s; } }
+.botao-som { min-width: 2.5rem; }
