@@ -57,7 +57,7 @@ export function Perfil({ jogador, classes, conquistas, onSalvar, onVoltar }: Pro
                     <h3>Nova carta! Escolha uma:</h3>
                     <div className="mao">
                       {opcoesDeCarta(c, h).map((carta) => (
-                        <Carta key={carta.id} carta={carta} onClick={() => atualizarHeroi({ ...h, cartasExtras: [...h.cartasExtras, carta.id] })} />
+                        <Carta key={carta.id} carta={carta} cor={v.visual?.destaque} heroi={{ classe: c.id, versao: h.versao, visual: v.visual }} onClick={() => atualizarHeroi({ ...h, cartasExtras: [...h.cartasExtras, carta.id] })} />
                       ))}
                     </div>
                   </div>
@@ -86,7 +86,12 @@ export function Perfil({ jogador, classes, conquistas, onSalvar, onVoltar }: Pro
         <h2>Criar herói</h2>
         <div className="classes">
           {Object.values(classes).map((c) => (
-            <button key={c.id} className={`item ${classeSel === c.id ? 'item--ativo' : ''}`} onClick={() => setClasseSel(c.id)}>
+            <button key={c.id} className={`item item--classe ${classeSel === c.id ? 'item--ativo' : ''}`} onClick={() => setClasseSel(c.id)}>
+              <div className="classe__retratos">
+                {c.versoes.map((v) => (
+                  <Retrato key={v.id} id={v.id} visual={v.visual} className="classe__retrato" titulo={v.nome} />
+                ))}
+              </div>
               <strong>{c.nome}</strong>
               <span>
                 {c.papel} · {c.dificuldade === 'facil' ? 'fácil' : c.dificuldade === 'media' ? 'média' : 'difícil'}

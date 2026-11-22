@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { nivelPorXp } from '../../engine/progressao';
 import { obterProgresso } from '../../engine/save';
-import type { Aventura, Cenario, Save } from '../../engine/types';
+import type { Aventura, Cenario, Save, Visual } from '../../engine/types';
+import { Retrato } from '../arte/Retrato';
 
 export interface Escalacao {
   jogadorId: string;
@@ -12,11 +13,12 @@ interface Props {
   save: Save;
   aventuras: Aventura[];
   cenarios: Record<string, Cenario>;
+  visuais: Record<string, Visual | undefined>;
   onJogar: (aventura: Aventura, cenario: Cenario, escalacao: Escalacao[]) => void;
   onVoltar: () => void;
 }
 
-export function Campanha({ save, aventuras, cenarios, onJogar, onVoltar }: Props) {
+export function Campanha({ save, aventuras, cenarios, visuais, onJogar, onVoltar }: Props) {
   const [aventuraId, setAventuraId] = useState(aventuras[0]?.id);
   const [escalacao, setEscalacao] = useState<Record<string, string>>({});
   const aventura = aventuras.find((a) => a.id === aventuraId);
@@ -60,18 +62,30 @@ export function Campanha({ save, aventuras, cenarios, onJogar, onVoltar }: Props
         <h2>Quem vai jogar</h2>
         <p className="dica">De 1 a 4 heróis, um por jogador.</p>
         {save.jogadores.map((j) => (
-          <label key={j.id} className="linha">
+          <div key={j.id} className="escalacao">
             <span className="linha__nome">{j.nome}</span>
-            <select value={escalacao[j.id] ?? ''} onChange={(ev) => setEscalacao((s) => ({ ...s, [j.id]: ev.target.value }))}>
-              <option value="">Não vai jogar</option>
-              {j.herois.map((h) => (
-                <option key={h.id} value={h.id}>
-                  {h.nome} (nível {nivelPorXp(h.xp)})
-                </option>
-              ))}
-            </select>
-          </label>
+            <div className="escalacao__herois">
+              {j.herois.length === 0 && <span className="dica">Sem herói ainda: crie um no perfil.</span>}
+              {j.herois.map((h) => {
+                const ativo = escalacao[j.id] === h.id;
+                return (
+                  <button
+                    key={h.id}
+                    type="button"
+                    className={`escolha-heroi ${ativo ? 'escolha-heroi--ativa' : ''}`}
+                    aria-pressed={ativo}
+                    onClick={() => setEscalacao((s) => ({ ...s, [j.id]: ativo ? '' : h.id }))}
+                  >
+                    <Retrato id={h.versao} visual={visuais[h.versao]} className="escolha-heroi__retrato" titulo={h.nome} />
+                    <span className="escolha-heroi__nome">{h.nome.split(' ')[0]}</span>
+                    <span className="escolha-heroi__nivel">nível {nivelPorXp(h.xp)}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         ))}
+        <p className="dica">Toque no herói para escalar; toque de novo para tirar.</p>
       </section>
 
       {aventura && (

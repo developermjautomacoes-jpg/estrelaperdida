@@ -166,6 +166,7 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
                           key={c.id}
                           indice={i}
                           cor={visuais[u.arteId]?.destaque}
+                          heroi={{ classe: u.defId, versao: u.arteId, visual: visuais[u.arteId] }}
                           carta={c}
                           selecionada={sel.includes(c.id) || h.escolhidas.some((x) => x.id === c.id)}
                           lider={(sel[0] ?? h.lider) === c.id}
@@ -203,7 +204,12 @@ export function Batalha({ cenario, monstros, inicial, visuais, onFim, onSair }: 
                   <div className="mao">
                     {heroiDaVez.escolhidas.map((c, i) => (
                       <div key={c.id} className="escolha-metade">
-                        <Carta carta={c} indice={i} cor={visuais[unidade(e, heroiDaVez.unidadeId).arteId]?.destaque} />
+                        <Carta
+                          carta={c}
+                          indice={i}
+                          cor={visuais[unidade(e, heroiDaVez.unidadeId).arteId]?.destaque}
+                          heroi={{ classe: unidade(e, heroiDaVez.unidadeId).defId, versao: unidade(e, heroiDaVez.unidadeId).arteId, visual: visuais[unidade(e, heroiDaVez.unidadeId).arteId] }}
+                        />
                         <button className="botao" onClick={() => fazer(() => escolherMetades(e, c.id))}>
                           Cima desta
                         </button>

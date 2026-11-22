@@ -370,3 +370,447 @@ top-down view, old library floor, worn rugs, scattered books and candles, seamle
 top-down view, crater where a star fell, dark purple rock, glowing blue crystal veins, seamless game board background texture, even lighting, no characters, hand-painted digital illustration for a dark fantasy tabletop board game, painterly, muted earthy palette, no text, no watermark
 ```
 
+## Cartas de ação
+
+A arte aparece na faixa de cima de cada carta. Proporção **3:2 (paisagem)**.
+
+### Artes de categoria (18 imagens que cobrem as 91 cartas)
+
+Cada classe tem 3 artes: ataque, defesa/suporte e movimento. Toda carta usa a arte da categoria dela até ganhar uma arte própria.
+
+#### Atirador · Ataque
+
+arquivo: **`carta.base.atirador.ataque.png`**
+
+```text
+an arrow in flight wrapped in swirling wind and autumn leaves, a crossbow bolt beside it, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Atirador · Defesa e suporte
+
+arquivo: **`carta.base.atirador.defesa.png`**
+
+```text
+a cloak of leaves swirling into a protective barrier in a dark forest, an owl watching, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Atirador · Movimento
+
+arquivo: **`carta.base.atirador.movimento.png`**
+
+```text
+a hooded elf leaping over tree roots in a dark forest, a lynx running alongside, motion blur, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Curandeiro · Ataque
+
+arquivo: **`carta.base.curandeiro.ataque.png`**
+
+```text
+a burst of blue lantern fire pushing back creeping grey mist, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Curandeiro · Defesa e suporte
+
+arquivo: **`carta.base.curandeiro.defesa.png`**
+
+```text
+warm blue healing light flowing from an old lantern over open hands, small bell glowing, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Curandeiro · Movimento
+
+arquivo: **`carta.base.curandeiro.movimento.png`**
+
+```text
+a trail of candlelight and a ringing brass bell cutting through thick fog, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Defensor · Ataque
+
+arquivo: **`carta.base.defensor.ataque.png`**
+
+```text
+a glowing forge hammer smashing the ground, embers and sparks flying everywhere, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Defensor · Defesa e suporte
+
+arquivo: **`carta.base.defensor.defesa.png`**
+
+```text
+a dented iron tower shield engraved with a gate, blocking a wave of grey mist, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Defensor · Movimento
+
+arquivo: **`carta.base.defensor.movimento.png`**
+
+```text
+heavy armored dwarven boots charging across cracked stone, dust and sparks, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Ladino · Ataque
+
+arquivo: **`carta.base.ladino.ataque.png`**
+
+```text
+two daggers striking out of a cloud of purple smoke, a poison vial shattering, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Ladino · Defesa e suporte
+
+arquivo: **`carta.base.ladino.defesa.png`**
+
+```text
+a fox-shaped smoke illusion splitting into three copies in a dark alley, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Ladino · Movimento
+
+arquivo: **`carta.base.ladino.movimento.png`**
+
+```text
+a shadowy fox-folk figure vanishing in smoke across moonlit rooftops, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Mago · Ataque
+
+arquivo: **`carta.base.mago.ataque.png`**
+
+```text
+a fireball and icy shards exploding out of an open grumpy spellbook, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Mago · Defesa e suporte
+
+arquivo: **`carta.base.mago.defesa.png`**
+
+```text
+a glowing blue rune circle shield floating in the air, sparks of magic, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Mago · Movimento
+
+arquivo: **`carta.base.mago.movimento.png`**
+
+```text
+flying spellbook pages and glowing runes forming a path of light through a library, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Protetor · Ataque
+
+arquivo: **`carta.base.protetor.ataque.png`**
+
+```text
+a massive stone fist bursting from the ground with glowing blue starlight cracks, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Protetor · Defesa e suporte
+
+arquivo: **`carta.base.protetor.defesa.png`**
+
+```text
+a wall of mossy stone and violet crystals rising from the earth to protect travelers, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Protetor · Movimento
+
+arquivo: **`carta.base.protetor.movimento.png`**
+
+```text
+heavy stone footsteps leaving glowing blue cracks on a mossy path, hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+### Artes próprias das cartas-assinatura (opcional, 36 imagens)
+
+Substituem a arte de categoria nas cartas exclusivas de cada herói.
+
+#### Flecha do Vento Norte · Lyra Ventofolha
+
+arquivo: **`carta.base.atirador.lyra.flecha-do-vento-norte.png`**
+
+```text
+a calm young elf woman ranger, long pale silver-blond hair, pointed ears, green leaf-patterned hooded cloak, longbow drawn, a small grey owl perched on her shoulder, serene focused gaze, dynamic action scene attacking, the signature move called "Flecha do Vento Norte", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Olhos de Pipa · Lyra Ventofolha
+
+arquivo: **`carta.base.atirador.lyra.olhos-de-pipa.png`**
+
+```text
+a calm young elf woman ranger, long pale silver-blond hair, pointed ears, green leaf-patterned hooded cloak, longbow drawn, a small grey owl perched on her shoulder, serene focused gaze, dynamic action scene empowering allies, the signature move called "Olhos de Pipa", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Chuva de Folhas · Lyra Ventofolha
+
+arquivo: **`carta.base.atirador.lyra.chuva-de-folhas.png`**
+
+```text
+a calm young elf woman ranger, long pale silver-blond hair, pointed ears, green leaf-patterned hooded cloak, longbow drawn, a small grey owl perched on her shoulder, serene focused gaze, dynamic action scene attacking, the signature move called "Chuva de Folhas", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Virote Perfurante · Taren Ventofolha
+
+arquivo: **`carta.base.atirador.taren.virote-perfurante.png`**
+
+```text
+an impulsive young elf man hunter, messy dark green-black hair, pointed ears, scar on cheek, rugged leather armor with traps hanging from belt, heavy crossbow, a lynx companion beside him, fierce expression, dynamic action scene attacking, the signature move called "Virote Perfurante", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Armadilha de Espinhos · Taren Ventofolha
+
+arquivo: **`carta.base.atirador.taren.armadilha-de-espinhos.png`**
+
+```text
+an impulsive young elf man hunter, messy dark green-black hair, pointed ears, scar on cheek, rugged leather armor with traps hanging from belt, heavy crossbow, a lynx companion beside him, fierce expression, dynamic action scene attacking, the signature move called "Armadilha de Espinhos", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Salto de Faísca · Taren Ventofolha
+
+arquivo: **`carta.base.atirador.taren.salto-de-faisca.png`**
+
+```text
+an impulsive young elf man hunter, messy dark green-black hair, pointed ears, scar on cheek, rugged leather armor with traps hanging from belt, heavy crossbow, a lynx companion beside him, fierce expression, dynamic action scene attacking, the signature move called "Salto de Faísca", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Luz Acolhedora · Aurora Lumen
+
+arquivo: **`carta.base.curandeiro.aurora.luz-acolhedora.png`**
+
+```text
+a brave optimistic young woman lighthouse keeper healer, golden hair in a bun, navy blue coat, holding up an old lantern burning with bright blue fire, warm hopeful smile, dynamic action scene healing, the signature move called "Luz Acolhedora", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Chama Azul · Aurora Lumen
+
+arquivo: **`carta.base.curandeiro.aurora.chama-azul.png`**
+
+```text
+a brave optimistic young woman lighthouse keeper healer, golden hair in a bun, navy blue coat, holding up an old lantern burning with bright blue fire, warm hopeful smile, dynamic action scene attacking, the signature move called "Chama Azul", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Lanterna Erguida · Aurora Lumen
+
+arquivo: **`carta.base.curandeiro.aurora.lanterna-erguida.png`**
+
+```text
+a brave optimistic young woman lighthouse keeper healer, golden hair in a bun, navy blue coat, holding up an old lantern burning with bright blue fire, warm hopeful smile, dynamic action scene empowering allies, the signature move called "Lanterna Erguida", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Sino do Repouso · Elias Lumen
+
+arquivo: **`carta.base.curandeiro.elias.sino-do-repouso.png`**
+
+```text
+a quiet melancholic young man gravedigger of the lighthouse, black hair, long dark coat, holding a small brass bell and a candle, gentle sad eyes, dynamic action scene healing, the signature move called "Sino do Repouso", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Vela de Vigília · Elias Lumen
+
+arquivo: **`carta.base.curandeiro.elias.vela-de-vigilia.png`**
+
+```text
+a quiet melancholic young man gravedigger of the lighthouse, black hair, long dark coat, holding a small brass bell and a candle, gentle sad eyes, dynamic action scene defending, the signature move called "Vela de Vigília", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Última Prece · Elias Lumen
+
+arquivo: **`carta.base.curandeiro.elias.ultima-prece.png`**
+
+```text
+a quiet melancholic young man gravedigger of the lighthouse, black hair, long dark coat, holding a small brass bell and a candle, gentle sad eyes, dynamic action scene healing, the signature move called "Última Prece", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Martelo em Chamas · Brasa Martelacesa
+
+arquivo: **`carta.base.defensor.brasa.martelo-em-chamas.png`**
+
+```text
+a stout 16-year-old dwarf girl blacksmith apprentice, fiery red braided hair, freckles, soot on her cheeks, leather apron over chainmail, holding a heavy forge hammer whose head glows with embers, stubborn confident grin, dynamic action scene attacking, the signature move called "Martelo em Chamas", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Muralha de Ferro · Brasa Martelacesa
+
+arquivo: **`carta.base.defensor.brasa.muralha-de-ferro.png`**
+
+```text
+a stout 16-year-old dwarf girl blacksmith apprentice, fiery red braided hair, freckles, soot on her cheeks, leather apron over chainmail, holding a heavy forge hammer whose head glows with embers, stubborn confident grin, dynamic action scene defending, the signature move called "Muralha de Ferro", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Grito da Forja · Brasa Martelacesa
+
+arquivo: **`carta.base.defensor.brasa.grito-da-forja.png`**
+
+```text
+a stout 16-year-old dwarf girl blacksmith apprentice, fiery red braided hair, freckles, soot on her cheeks, leather apron over chainmail, holding a heavy forge hammer whose head glows with embers, stubborn confident grin, dynamic action scene taunting enemies, the signature move called "Grito da Forja", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Escudo do Portão · Rocco Martelacesa
+
+arquivo: **`carta.base.defensor.rocco.escudo-do-portao.png`**
+
+```text
+a stout 16-year-old dwarf boy, short copper-red hair and a first scruffy beard, serious guilty eyes, iron plate armor with a huge tower shield engraved with a gate, cautious defensive stance, dynamic action scene defending, the signature move called "Escudo do Portão", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Contragolpe · Rocco Martelacesa
+
+arquivo: **`carta.base.defensor.rocco.contragolpe.png`**
+
+```text
+a stout 16-year-old dwarf boy, short copper-red hair and a first scruffy beard, serious guilty eyes, iron plate armor with a huge tower shield engraved with a gate, cautious defensive stance, dynamic action scene attacking, the signature move called "Contragolpe", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Fincar os Pés · Rocco Martelacesa
+
+arquivo: **`carta.base.defensor.rocco.fincar-os-pes.png`**
+
+```text
+a stout 16-year-old dwarf boy, short copper-red hair and a first scruffy beard, serious guilty eyes, iron plate armor with a huge tower shield engraved with a gate, cautious defensive stance, dynamic action scene defending, the signature move called "Fincar os Pés", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Passo de Fumaça · Zéfiro Rabo-de-Fumaça
+
+arquivo: **`carta.base.ladino.zefiro.passo-de-fumaca.png`**
+
+```text
+a charming fox-folk rogue, orange fur, two fluffy tails, wide-brimmed feathered hat, purple patched coat, twin daggers, curls of smoke around him, cocky smirk, dynamic action scene moving swiftly, the signature move called "Passo de Fumaça", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Duas Caudas · Zéfiro Rabo-de-Fumaça
+
+arquivo: **`carta.base.ladino.zefiro.duas-caudas.png`**
+
+```text
+a charming fox-folk rogue, orange fur, two fluffy tails, wide-brimmed feathered hat, purple patched coat, twin daggers, curls of smoke around him, cocky smirk, dynamic action scene attacking, the signature move called "Duas Caudas", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Golpe Pelas Costas · Zéfiro Rabo-de-Fumaça
+
+arquivo: **`carta.base.ladino.zefiro.golpe-pelas-costas.png`**
+
+```text
+a charming fox-folk rogue, orange fur, two fluffy tails, wide-brimmed feathered hat, purple patched coat, twin daggers, curls of smoke around him, cocky smirk, dynamic action scene attacking, the signature move called "Golpe Pelas Costas", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Lâmina Envenenada · Sálvia Rabo-de-Fumaça
+
+arquivo: **`carta.base.ladino.salvia.lamina-envenenada.png`**
+
+```text
+a cold calculating fox-folk woman assassin, dark russet fur, hooded dark green cloak, belt of throwing knives and small poison vials, narrow amber eyes, dynamic action scene attacking, the signature move called "Lâmina Envenenada", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Sumir na Multidão · Sálvia Rabo-de-Fumaça
+
+arquivo: **`carta.base.ladino.salvia.sumir-na-multidao.png`**
+
+```text
+a cold calculating fox-folk woman assassin, dark russet fur, hooded dark green cloak, belt of throwing knives and small poison vials, narrow amber eyes, dynamic action scene defending, the signature move called "Sumir na Multidão", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Dívida Cobrada · Sálvia Rabo-de-Fumaça
+
+arquivo: **`carta.base.ladino.salvia.divida-cobrada.png`**
+
+```text
+a cold calculating fox-folk woman assassin, dark russet fur, hooded dark green cloak, belt of throwing knives and small poison vials, narrow amber eyes, dynamic action scene attacking, the signature move called "Dívida Cobrada", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Bola de Fogo Quase Certa · Kael
+
+arquivo: **`carta.base.mago.kael.bola-de-fogo-quase-certa.png`**
+
+```text
+a clumsy curious 12-year-old boy apprentice wizard, messy brown hair, oversized purple robe with ink stains, holding a grumpy talking spellbook with eyes on its cover, small fire spark at his fingertips, dynamic action scene attacking, the signature move called "Bola de Fogo Quase Certa", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Gelo do Capítulo 7 · Kael
+
+arquivo: **`carta.base.mago.kael.gelo-do-capitulo-7.png`**
+
+```text
+a clumsy curious 12-year-old boy apprentice wizard, messy brown hair, oversized purple robe with ink stains, holding a grumpy talking spellbook with eyes on its cover, small fire spark at his fingertips, dynamic action scene attacking, the signature move called "Gelo do Capítulo 7", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Página Arrancada · Kael
+
+arquivo: **`carta.base.mago.kael.pagina-arrancada.png`**
+
+```text
+a clumsy curious 12-year-old boy apprentice wizard, messy brown hair, oversized purple robe with ink stains, holding a grumpy talking spellbook with eyes on its cover, small fire spark at his fingertips, dynamic action scene attacking, the signature move called "Página Arrancada", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Runa de Gelo · Nara Vesperal
+
+arquivo: **`carta.base.mago.nara.runa-de-gelo.png`**
+
+```text
+a disciplined proud 14-year-old girl apprentice mage, long black braid, tidy blue robes with silver runes, glowing icy blue rune circle floating above her hand, determined serious face, dynamic action scene attacking, the signature move called "Runa de Gelo", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Círculo de Proteção · Nara Vesperal
+
+arquivo: **`carta.base.mago.nara.circulo-de-protecao.png`**
+
+```text
+a disciplined proud 14-year-old girl apprentice mage, long black braid, tidy blue robes with silver runes, glowing icy blue rune circle floating above her hand, determined serious face, dynamic action scene defending, the signature move called "Círculo de Proteção", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Palavra Proibida · Nara Vesperal
+
+arquivo: **`carta.base.mago.nara.palavra-proibida.png`**
+
+```text
+a disciplined proud 14-year-old girl apprentice mage, long black braid, tidy blue robes with silver runes, glowing icy blue rune circle floating above her hand, determined serious face, dynamic action scene casting a forbidden spell, the signature move called "Palavra Proibida", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Raízes Firmes · Toco
+
+arquivo: **`carta.base.protetor.toco.raizes-firmes.png`**
+
+```text
+a gentle stone golem covered in moss and tiny flowers, round friendly face carved in rock, a glowing blue crack in its chest leaking starlight, a butterfly resting on its finger, kind innocent eyes, dynamic action scene attacking, the signature move called "Raízes Firmes", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Pedra Amiga · Toco
+
+arquivo: **`carta.base.protetor.toco.pedra-amiga.png`**
+
+```text
+a gentle stone golem covered in moss and tiny flowers, round friendly face carved in rock, a glowing blue crack in its chest leaking starlight, a butterfly resting on its finger, kind innocent eyes, dynamic action scene defending, the signature move called "Pedra Amiga", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Abraço de Granito · Toco
+
+arquivo: **`carta.base.protetor.toco.abraco-de-granito.png`**
+
+```text
+a gentle stone golem covered in moss and tiny flowers, round friendly face carved in rock, a glowing blue crack in its chest leaking starlight, a butterfly resting on its finger, kind innocent eyes, dynamic action scene defending, the signature move called "Abraço de Granito", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Espelho de Quartzo · Lasca
+
+arquivo: **`carta.base.protetor.lasca.espelho-de-quartzo.png`**
+
+```text
+a slender stone golem woman with violet crystal shards growing from her shoulders and head like a crown, a glowing crack of starlight in her chest, sharp ironic expression, arms crossed, dynamic action scene defending, the signature move called "Espelho de Quartzo", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Estilhaço · Lasca
+
+arquivo: **`carta.base.protetor.lasca.estilhaco.png`**
+
+```text
+a slender stone golem woman with violet crystal shards growing from her shoulders and head like a crown, a glowing crack of starlight in her chest, sharp ironic expression, arms crossed, dynamic action scene attacking, the signature move called "Estilhaço", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+
+#### Pele de Diamante · Lasca
+
+arquivo: **`carta.base.protetor.lasca.pele-de-diamante.png`**
+
+```text
+a slender stone golem woman with violet crystal shards growing from her shoulders and head like a crown, a glowing crack of starlight in her chest, sharp ironic expression, arms crossed, dynamic action scene defending, the signature move called "Pele de Diamante", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
+```
+

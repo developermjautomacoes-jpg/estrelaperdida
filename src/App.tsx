@@ -112,7 +112,7 @@ export default function App() {
       return <Perfil jogador={j} classes={reg.classes} conquistas={reg.conquistas} onSalvar={gravarJogador} onVoltar={() => setTela({ nome: 'jogadores' })} />;
     }
     case 'campanha':
-      return <Campanha save={save} aventuras={aventuras} cenarios={reg.cenarios} onJogar={jogar} onVoltar={() => setTela({ nome: 'jogadores' })} />;
+      return <Campanha save={save} aventuras={aventuras} cenarios={reg.cenarios} visuais={visuais} onJogar={jogar} onVoltar={() => setTela({ nome: 'jogadores' })} />;
     case 'batalha':
       return (
         <Batalha

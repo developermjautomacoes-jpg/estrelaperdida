@@ -932,3 +932,114 @@ select {
 .tabuleiro-moldura--pintada .decor {
   display: none;
 }
+
+/* Arte das cartas */
+.carta__arte {
+  margin: -0.55rem -0.6rem 0.2rem;
+  height: 78px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid color-mix(in srgb, var(--cor-heroi) 50%, var(--borda));
+}
+
+.carta__arte img,
+.carta__retrato {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.carta__retrato {
+  height: auto;
+  margin-top: -18%;
+}
+
+.carta__arte::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(26, 31, 41, 0.95));
+}
+
+.carta:not(:disabled):hover .carta__arte img,
+.carta:not(:disabled):hover .carta__retrato {
+  transform: scale(1.08);
+}
+
+/* Escolha de herói */
+.escalacao {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--borda);
+}
+
+.escalacao__herois {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.escolha-heroi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: 112px;
+  padding: 0.4rem;
+  background: var(--pedra-clara);
+  border: 2px solid var(--borda);
+  border-radius: 10px;
+  color: var(--pergaminho);
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.escolha-heroi:hover {
+  transform: translateY(-3px);
+  border-color: var(--lanterna);
+}
+
+.escolha-heroi--ativa {
+  border-color: var(--lanterna);
+  box-shadow: 0 0 0 1px var(--lanterna), 0 0 18px rgba(108, 195, 255, 0.35);
+  background: linear-gradient(0deg, var(--lanterna-suave), var(--lanterna-suave)), var(--pedra-clara);
+}
+
+.escolha-heroi__retrato {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.escolha-heroi__nome {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.escolha-heroi__nivel {
+  font-size: 0.75rem;
+  color: var(--cinza);
+}
+
+.classes {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.classe__retratos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.classe__retrato {
+  width: 100%;
+  height: auto;
+  display: block;
+}
