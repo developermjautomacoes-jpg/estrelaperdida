@@ -18,6 +18,44 @@
   "desbloqueia": [
     "estrela.cenario-03"
   ],
-  "rascunho": true,
-  "ambiente": "bosque"
+  "ambiente": "bosque",
+  "mapa": [
+    "#############",
+    "#S...#...#..#",
+    "#S.......#..#",
+    "#..##.......#",
+    "#S.....#....#",
+    "#S..#.....#.#",
+    "#############"
+  ],
+  "inimigos": [
+    {
+      "tipo": "base.cogumelo-raivoso",
+      "linha": 2,
+      "coluna": 6
+    },
+    {
+      "tipo": "base.lobo-cinzento",
+      "linha": 3,
+      "coluna": 10
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 4,
+      "coluna": 9,
+      "minHerois": 3
+    },
+    {
+      "tipo": "base.cogumelo-raivoso",
+      "linha": 1,
+      "coluna": 7,
+      "minHerois": 3
+    },
+    {
+      "tipo": "base.cogumelo-raivoso",
+      "linha": 5,
+      "coluna": 8,
+      "minHerois": 4
+    }
+  ]
 }

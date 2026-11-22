@@ -4,7 +4,7 @@
   "descricao": "Soldado de Morvhen, forte e lento.",
   "vida": 9,
   "movimento": 2,
-  "ataque": 4,
+  "ataque": 3,
   "alcance": 1,
   "habilidades": [
     {
@@ -20,7 +20,7 @@
         },
         {
           "tipo": "atacar",
-          "valor": 4,
+          "valor": 3,
           "alcance": 1
         }
       ]
@@ -34,7 +34,7 @@
         },
         {
           "tipo": "atacar",
-          "valor": 5,
+          "valor": 4,
           "alcance": 1
         }
       ]

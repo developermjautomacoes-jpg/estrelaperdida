@@ -15,6 +15,43 @@
   "desbloqueia": [
     "estrela.cenario-04"
   ],
-  "rascunho": true,
-  "ambiente": "minas"
+  "ambiente": "minas",
+  "mapa": [
+    "#############",
+    "#SS...#.....#",
+    "#.......##..#",
+    "#S..........#",
+    "#S.##..#....#",
+    "#......#....#",
+    "#############"
+  ],
+  "inimigos": [
+    {
+      "tipo": "base.esqueleto-anao",
+      "linha": 2,
+      "coluna": 10
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 3,
+      "coluna": 7
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 5,
+      "coluna": 9
+    },
+    {
+      "tipo": "base.esqueleto-anao",
+      "linha": 4,
+      "coluna": 10,
+      "minHerois": 3
+    },
+    {
+      "tipo": "base.sombra-sussurrante",
+      "linha": 1,
+      "coluna": 10,
+      "minHerois": 4
+    }
+  ]
 }
