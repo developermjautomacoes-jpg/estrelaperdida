@@ -3,5 +3,7 @@ dist
 *.tsbuildinfo
 .env
 .env.*
+!.env.production
+!.env.example
 .DS_Store
 coverage
