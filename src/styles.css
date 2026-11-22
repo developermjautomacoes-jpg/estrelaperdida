@@ -826,34 +826,65 @@ select {
 .unidade .unidade__borda {
   fill: none;
   stroke-width: 2.5;
+  stroke-linejoin: round;
 }
 
-.unidade--heroi .unidade__borda {
+.unidade__sombra {
+  fill: rgba(0, 0, 0, 0.55);
+  filter: blur(2px);
+}
+
+.unidade__base {
+  fill: #1a1f28;
+  stroke-width: 2;
+}
+
+.unidade--heroi .unidade__borda,
+.unidade--heroi .unidade__base {
   stroke: var(--lanterna);
 }
 
-.unidade--monstro .unidade__borda {
+.unidade--monstro .unidade__borda,
+.unidade--monstro .unidade__base {
   stroke: var(--sangue);
 }
 
-.unidade--chefe .unidade__borda {
+.unidade--chefe .unidade__borda,
+.unidade--chefe .unidade__base {
   stroke: var(--ouro);
   stroke-width: 3.5;
 }
 
-.unidade--vez .unidade__borda {
+.unidade--vez .unidade__borda,
+.unidade--vez .unidade__base {
   filter: drop-shadow(0 0 6px var(--lanterna));
-  animation: pulsa 1.6s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
+  animation: brilhar 1.6s ease-in-out infinite;
+}
+
+@keyframes brilhar {
+  50% { filter: drop-shadow(0 0 12px var(--lanterna)); }
 }
 
 .unidade--alvo .unidade__borda {
   stroke: #fff;
-  stroke-dasharray: 5 3;
-  animation: girar 4s linear infinite;
-  transform-box: fill-box;
-  transform-origin: center;
+  stroke-dasharray: 6 4;
+  animation: tracejar 0.9s linear infinite;
+}
+
+.unidade--alvo .unidade__base {
+  stroke: #fff;
+}
+
+.unidade--alvo:hover .unidade__figura {
+  translate: 0 -3px;
+}
+
+.unidade__figura {
+  transition: translate 0.15s;
+}
+
+@keyframes tracejar {
+  to { stroke-dashoffset: -20; }
 }
 
 @keyframes girar {
@@ -869,7 +900,7 @@ select {
 }
 
 .unidade--atingida > g,
-.unidade--atingida > circle {
+.unidade--atingida > ellipse {
   animation: tremer 0.4s ease-in-out;
 }
 

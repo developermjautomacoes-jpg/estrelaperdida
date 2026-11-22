@@ -69,7 +69,7 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
       const antes = anterior.current[u.id];
       if (antes !== undefined && antes !== u.vida) {
         const { x, y } = paraPixel(u.pos, T);
-        novos.push({ chave: Math.random(), x, y: y - 20, texto: u.vida < antes ? `-${antes - u.vida}` : `+${u.vida - antes}`, tipo: u.vida < antes ? 'dano' : 'cura' });
+        novos.push({ chave: Math.random(), x, y: y - 42, texto: u.vida < antes ? `-${antes - u.vida}` : `+${u.vida - antes}`, tipo: u.vida < antes ? 'dano' : 'cura' });
         if (u.vida < antes) feridos.push(u.id);
       }
       anterior.current[u.id] = u.vida;
@@ -114,7 +114,9 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
           else if (ev.tipo === 'escudo') tocar('escudo');
           else if (ev.tipo === 'mover') tocar('passo');
           else if (ev.tipo === 'derrota') tocar('derrota');
-          const ef: Efeito = { chave: Math.random(), ev, x1: origem.x, y1: origem.y, x2: destino.x, y2: destino.y, estilo };
+          // mira no meio do corpo do token, não no chão
+          const meio = ev.tipo === 'mover' ? 0 : 12;
+          const ef: Efeito = { chave: Math.random(), ev, x1: origem.x, y1: origem.y - meio, x2: destino.x, y2: destino.y - meio, estilo };
           setEfeitos((l) => [...l, ef]);
           timers.push(setTimeout(() => setEfeitos((l) => l.filter((x) => x !== ef)), 900));
         }, i * INTERVALO_EFEITOS),
@@ -147,10 +149,19 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
         })}
         {estado.unidades
           .filter((u) => !u.fora)
-          .map((u) => {
-            const { x, y } = paraPixel(u.pos, T);
+          .map((u) => ({ u, ...paraPixel(u.pos, T) }))
+          // quem está mais embaixo na tela fica na frente (tokens em pé se sobrepõem)
+          .sort((a, b) => a.y - b.y || a.x - b.x)
+          .map(({ u, x, y }) => {
             const alvo = unidadesValidas.includes(u.id);
-            const r = u.chefe ? 24 : 20;
+            const w = u.chefe ? 46 : 36; // largura do token
+            const h = u.chefe ? 60 : 47; // altura do token
+            const hw = w / 2;
+            const base = 13; // onde o token encosta na base (abaixo do centro do hexágono)
+            const topo = base - h;
+            const silhueta = `M ${-hw} ${base} V ${topo + hw} A ${hw} ${hw} 0 0 1 ${hw} ${topo + hw} V ${base} Z`;
+            const alt = h + 6;
+            const larg = alt / 1.2;
             return (
               <g
                 key={u.id}
@@ -163,22 +174,26 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
                 </title>
                 <defs>
                   <clipPath id={`recorte-${u.id}`}>
-                    <circle r={r - 2} />
+                    <path d={silhueta} />
                   </clipPath>
                 </defs>
-                <circle r={r} className="unidade__aro" />
-                <g clipPath={`url(#recorte-${u.id})`}>
-                  <Retrato id={u.arteId} visual={visuais[u.arteId]} x={-r * 1.25} y={-r * 1.1} largura={r * 2.5} altura={r * 3} />
+                <ellipse cx={0} cy={base + 3} rx={hw + 5} ry={7} className="unidade__sombra" />
+                <ellipse cx={0} cy={base + 1} rx={hw + 3} ry={5.5} className="unidade__base" />
+                <g className="unidade__figura">
+                  <path d={silhueta} className="unidade__aro" />
+                  <g clipPath={`url(#recorte-${u.id})`}>
+                    <Retrato id={u.arteId} visual={visuais[u.arteId]} x={-larg / 2} y={topo - 2} largura={larg} altura={alt} />
+                  </g>
+                  <path d={silhueta} className="unidade__borda" />
                 </g>
-                <circle r={r} className="unidade__borda" />
-                <rect x={-16} y={r + 2} width={32} height={4} rx={2} className="unidade__vida-fundo" />
-                <rect x={-16} y={r + 2} width={(32 * u.vida) / u.vidaMax} height={4} rx={2} className="unidade__vida" />
+                <rect x={-16} y={base + 8} width={32} height={4} rx={2} className="unidade__vida-fundo" />
+                <rect x={-16} y={base + 8} width={(32 * u.vida) / u.vidaMax} height={4} rx={2} className="unidade__vida" />
                 {u.escudo > 0 && (
-                  <text x={r - 4} y={-r + 6} className="unidade__escudo">
+                  <text x={hw - 2} y={topo + 6} className="unidade__escudo">
                     ◆{u.escudo}
                   </text>
                 )}
-                {u.condicoes.length > 0 && <circle cx={-r + 4} cy={-r + 4} r={4} className="unidade__condicao" />}
+                {u.condicoes.length > 0 && <circle cx={-hw + 3} cy={topo + 8} r={4} className="unidade__condicao" />}
               </g>
             );
           })}
