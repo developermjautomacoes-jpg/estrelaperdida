@@ -910,3 +910,25 @@ select {
     transition: none !important;
   }
 }
+
+/* Fundo pintado do cenário: hexágonos translúcidos por cima da arte */
+.tabuleiro-moldura--pintada .hex {
+  fill-opacity: 0.28;
+  stroke: rgba(233, 225, 207, 0.22);
+}
+
+.tabuleiro-moldura--pintada .hex--parede {
+  fill: #05070a;
+  fill-opacity: 0.72;
+  stroke: rgba(0, 0, 0, 0.4);
+}
+
+.tabuleiro-moldura--pintada .hex--valido {
+  fill: #6cc3ff;
+  fill-opacity: 0.32;
+  stroke: var(--lanterna);
+}
+
+.tabuleiro-moldura--pintada .decor {
+  display: none;
+}

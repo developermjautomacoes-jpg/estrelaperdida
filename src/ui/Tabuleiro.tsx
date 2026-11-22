@@ -75,7 +75,7 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
   const fundo = artePintada(`ambiente.${ambiente}`);
 
   return (
-    <div className={`tabuleiro-moldura ambiente--${ambiente}`} style={fundo ? { backgroundImage: `url(${fundo})` } : undefined}>
+    <div className={`tabuleiro-moldura ambiente--${ambiente} ${fundo ? 'tabuleiro-moldura--pintada' : ''}`} style={fundo ? { backgroundImage: `url(${fundo})` } : undefined}>
       <svg className="tabuleiro" viewBox={`${minX} ${minY} ${maxX - minX} ${maxY - minY}`} role="img" aria-label="Tabuleiro">
         {todos.map((h) => {
           const k = chave(h);
