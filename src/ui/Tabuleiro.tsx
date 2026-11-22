@@ -174,7 +174,10 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
       if (viradoRef.current[u.id] === undefined) viradoRef.current[u.id] = u.lado === 'monstro';
       if (!antes || (antes.q === u.pos.q && antes.r === u.pos.r) || u.fora) continue;
       const ocupados = new Set(estado.unidades.filter((o) => o.id !== u.id && !o.fora).map((o) => chave(o.pos)));
-      const rota = [antes, ...(caminho(antes, u.pos, { andaveis, bloqueados: ocupados }) ?? [u.pos])];
+      const achado = caminho(antes, u.pos, { andaveis, bloqueados: ocupados });
+      const rota = [antes, ...(achado && achado.length ? achado : [u.pos])];
+      const ultimo = rota[rota.length - 1];
+      if (ultimo.q !== u.pos.q || ultimo.r !== u.pos.r) rota.push(u.pos);
       const pontosRota = rota.map(px);
       if (andando.current[u.id]) cancelAnimationFrame(andando.current[u.id]);
       const inicio = performance.now();
@@ -184,8 +187,8 @@ export function Tabuleiro({ estado, ambiente = 'porto', visuais, hexesValidos, u
         const dec = Math.min(t - inicio, total);
         const i = Math.min(pontosRota.length - 2, Math.floor(dec / MS_POR_CASA));
         const f = (dec - i * MS_POR_CASA) / MS_POR_CASA;
-        const a = pontosRota[i];
-        const b = pontosRota[i + 1];
+        const a = pontosRota[Math.max(0, i)];
+        const b = pontosRota[Math.max(0, i) + 1] ?? a;
         if (i !== passoTocado && dec < total) {
           passoTocado = i;
           tocar('passo');
@@ -297,11 +300,18 @@ function Unidade({ u, x, y, quadro, virado, visual, alvo, vez, atingida, onClick
   let topo: number;
   if (urlAndar && tam) {
     const fw = tam.w / 8;
-    const largura = (altura * fw) / tam.h;
-    topo = -altura + 2;
+    // bichos compridos (lobo) não podem ocupar a casa vizinha
+    const larguraMax = u.chefe ? 90 : 66;
+    let alt = altura;
+    let largura = (alt * fw) / tam.h;
+    if (largura > larguraMax) {
+      alt = (alt * larguraMax) / largura;
+      largura = larguraMax;
+    }
+    topo = -alt + 2;
     figura = (
       <g transform={virado ? 'scale(-1 1)' : undefined}>
-        <svg x={-largura / 2} y={topo} width={largura} height={altura} viewBox={`${quadro * fw} 0 ${fw} ${tam.h}`} preserveAspectRatio="xMidYMax meet" className="unidade__mini">
+        <svg x={-largura / 2} y={topo} width={largura} height={alt} viewBox={`${quadro * fw} 0 ${fw} ${tam.h}`} preserveAspectRatio="xMidYMax meet" className="unidade__mini">
           <image href={urlAndar} width={tam.w} height={tam.h} />
         </svg>
       </g>

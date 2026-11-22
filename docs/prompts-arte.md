@@ -814,3 +814,24 @@ arquivo: **`carta.base.protetor.lasca.pele-de-diamante.png`**
 a slender stone golem woman with violet crystal shards growing from her shoulders and head like a crown, a glowing crack of starlight in her chest, sharp ironic expression, arms crossed, dynamic action scene defending, the signature move called "Pele de Diamante", hand-painted digital illustration for a dark fantasy tabletop board game card, detailed ink linework, painterly, muted earthy palette with glowing blue lantern-light accents, dramatic lighting, misty dark background, wide horizontal composition, no text, no logo, no watermark
 ```
 
+
+## Miniaturas que andam (ciclo de caminhada de 8 quadros)
+
+Cada personagem do tabuleiro tem `src/assets/arte/andar.<id>.webp`: uma faixa com 8 quadros
+de caminhada, sem fundo. O jogo usa o quadro 3 (pernas juntas) para o personagem parado e
+os 8 quadros quando ele anda casa por casa. Sem esse arquivo, aparece o token com o retrato.
+
+Como gerar um novo (Bing Image Creator, proporção 3:2), trocando só a descrição:
+
+```text
+8-frame walk cycle sprite sheet, 8 frames arranged in 2 rows of 4, evenly spaced grid, the same character in every frame, side view walking to the right, frames show the full walk cycle: contact, down, passing, up, then the other leg, <DESCRIÇÃO DO PERSONAGEM>, full body from head to feet, hand-painted 3D tabletop miniature style, soft studio lighting, plain flat dark grey background, no text, no numbers, no logo, no watermark
+```
+
+Salve como `andar.<id>.jpg` numa pasta e rode:
+
+```bash
+python3 -I tools/miniaturas.py <pasta_com_os_jpg> src/assets/arte
+```
+
+O script tira o fundo cinza, separa os 8 quadros e alinha os pés.
+Companheiros (coruja, lince) entram na própria descrição para andarem junto.
