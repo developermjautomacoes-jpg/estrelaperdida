@@ -33,6 +33,8 @@ npm run build
 - `src/assets/arte/` — arte pintada: `<id>.png` substitui o retrato SVG automaticamente
   (`capa.png`, `ambiente.<regiao>.png` para os fundos). Prompts em `docs/prompts-arte.md`.
 - `docs/` — documento de design (GDD), guia para criar aventuras e pacote de prompts de arte.
+- `docs/referencias-rpg.md` — o que aproveitar dos manuais de RPG de referência (Livro do Jogador e Guia do
+  Mestre, 5ª ed.). Só ideias de mecânica; nunca texto, nomes ou tabelas. Os PDFs não entram no repositório.
 
 ## Regras do projeto
 
